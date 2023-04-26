@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Detalle del departamento</title>
+    <h1>Deustubular S.L.</h1>
+</head>
+
+<body>
+    <div id="content">
+        <h1>Gestor de Empleados</h1>
+        <h2>Datos del equipo</h2>
+        {% if equipo %}
+            <ul>
+                <li>
+                    {{ equipo.marca}}
+                </li>
+                <li>
+                    {{ equipo.modelo}}
+                </li>
+                <li>
+                    {{ equipo.categoria}}
+                </li>
+                <li>
+                    {{ equipo.fecha_adquisicion}}
+                </li>
+                <li>
+                    {{ equipo.fecha_instalacion}}
+                </li>
+                <li>
+                    <a href="/appEmpresaDjango/equipo/{{ equipo.id }}/empleados">Ver empleados</a>
+                </li>
+            </ul>
+        {% else %}
+            <p>No existe este equipo.</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>
