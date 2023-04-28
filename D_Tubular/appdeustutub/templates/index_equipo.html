@@ -1,0 +1,25 @@
+{% extends "base_index.html" %}
+
+{% block contenido %}
+    <h1>Gestor de Empleados</h1>
+
+    <h2>Listado de Equipo</h2>
+    <!-- mismo nombre que el diccionario donde guardamos los objetos -->
+    <!--comprobar si hay equipos  -->
+    {% if lista_equipos %}
+        <ul>
+        
+            <!-- si hay recorrer equipos  -->
+            {% for e in lista_equipos %}
+            <li>
+                {{ e.marca }}
+            {% endfor %}
+            </li>
+        </ul>
+
+
+    {% else %}
+        <p> No existen equipos</p>
+    {% endif %}
+
+{% endblock %}
