@@ -5,5 +5,6 @@ from django.http import HttpResponse
 
 
 def index(request):
-    
-    return HttpResponse("Listado de departamentos")
+    #           referenciar el título de la página
+    context = {'title_page': 'Seleccione una opción:'}
+    return render(request, 'index.html', context)
