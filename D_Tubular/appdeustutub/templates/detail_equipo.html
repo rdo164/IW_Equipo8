@@ -1,0 +1,42 @@
+{% extends "base_index.html" %}
+
+
+{% block title_page %} {% endblock %}
+
+{% block contenido %}
+    <h1>Gestor de Empleados</h1>
+
+    <h2>Equipo</h2>
+    <!-- mismo nombre que el diccionario donde guardamos los objetos -->
+    <!--comprobar si existe el equipo  -->
+    {% if equipo %}
+        <!-- caracteristicas de este -->
+        <ul>
+            <li>
+                <p> Marca:  {{ equipo.marca }}</p>
+            </li>
+            <li>
+                <p> Modelo:  {{ equipo.modelo }}</p>
+            </li>
+            <li>
+                <p>Categoría: {{ equipo.categoria}}</p>
+            </li>
+            <li>
+                <p> Fecha de adquisición: {{ equipo.fecha_adquisicion}} </p>
+            </li>
+            <li> 
+                <p> Fecha de instalación: {{ equipo.fecha_instalacion }} </p>
+            </li>
+            <!-- si hay recorrer equipos  -->
+            
+            <li>
+                <!-- objeto marca, cada una tiene un id-->
+                <a href="appdeustutub/equipo/{{ e.id }}"> {{ e.marca }}</a>
+            </li>
+            
+        </ul>
+    {% else %}
+        <p> No existen detalles del equipo</p>
+    {% endif %}
+
+{% endblock %}

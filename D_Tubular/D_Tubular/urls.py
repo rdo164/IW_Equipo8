@@ -19,7 +19,7 @@ from django.urls import include,path
 
 urlpatterns = [
     # para que al runnear el servidor nos aparezca la página
-    path('', include('appdeustutub.urls')),
+    path('appdeustutub/', include('appdeustutub.urls')),
 
     #
     path('admin/', admin.site.urls),

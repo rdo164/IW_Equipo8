@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <title>Listado de equipos:</title>
+    </head>
+    <body>
+        <div id="content">
+	     <h1>Gestor de Empleados</h1>
+         <h2>Listado de empleados</h2>
+         {% if lista_empleados %}
+             <ul>
+             {% for empleado in lista_empleados %}
+                 <li>
+                     <a href="/appdeustutub/empleado/{{ empleado.id }}">{{ empleado.nombre }}</a>
+                 </li>
+             {% endfor %}
+             </ul>
+         {% else %}
+         <p>No hay empleados creados.</p>
+         {% endif %}
+        </div>
+    </body>
+</html>

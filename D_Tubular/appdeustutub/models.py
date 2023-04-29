@@ -9,6 +9,7 @@ class Equipo(models.Model):
     categoria = models.CharField(max_length=200)
     fecha_adquisicion = models.DateField()
     fecha_instalacion = models.DateField()
+    
     def __str__(self):
         return self.marca
     
@@ -20,6 +21,7 @@ class Proceso(models.Model):
     referencia = models.CharField(max_length=100)
     fechaInicio = models.DateTimeField()
     fechaFin = models.DateTimeField()
+
     def __str__(self):
         return self.nombreProceso
 
