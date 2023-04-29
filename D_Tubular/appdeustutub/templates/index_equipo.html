@@ -1,14 +1,17 @@
-{% extends "base_index.html" %}
+{% extends "base.html" %}
+{% load static %}
+
+{% block title_page %} {% endblock %}
 
 {% block contenido %}
     <h1>Gestor de Empleados</h1>
 
-    <h2>Listado de Equipos: </h2>
+    <!-- <h2>Listado de Equipos: </h2> -->
     <!-- mismo nombre que el diccionario donde guardamos los objetos -->
     <!--comprobar si hay equipos  -->
     {% if lista_equipos %}
         <ul>
-        
+
             <!-- si hay recorrer equipos  -->
             {% for e in lista_equipos %}
             <li>

@@ -14,5 +14,5 @@ urlpatterns =[
     # detalles 
     path('equipo/<int:equipo_id>/', views.show_equipo, name='detail_equipo'),
     path('proceso/<int:proceso_id>/',views.show_proceso, name='detail_proceso'),
-    # path('empleado/<int:empleado_id/>', views.show_empleado, name='detail_empleado')
+    path('empleado/<int:empleado_id>/', views.show_empleado, name='detail_empleado'),
 ]

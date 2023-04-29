@@ -14,7 +14,7 @@ def index(request):
 def index_equipo(request):
 	equipos = Equipo.objects.order_by('marca')    
     # context = {'title_page': ' ', 'marca' }
-	context = {'lista_equipos': equipos}
+	context = {'title_page': 'Listado de equipos', 'lista_equipos': equipos}
 	return render(request, 'index_equipo.html', context)
 
 # devuelve los detalles del equipo solicitado
@@ -45,8 +45,8 @@ def index_empleado(request):
     return render( request, 'index_empleado.html', context)
 
 
-# # devuelve los datos del empleado solicitado
-# def show_empleado(request, empleado_id):
-#     empleado = get_object_or_404(Empleado, pk=empleado_id)
-#     context = {'empleado': empleado }
-#     return render(request, 'detail_empleado.html', context)
+# devuelve los datos del empleado solicitado
+def show_empleado(request, empleado_id):
+    empleado = get_object_or_404(Empleado, pk=empleado_id)
+    context = { 'empleado': empleado }
+    return render(request, 'detail_empleado.html', context)

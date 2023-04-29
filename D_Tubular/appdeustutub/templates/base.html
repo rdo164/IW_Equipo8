@@ -1,15 +1,17 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
-    
 <html>
     <head>
-    <!-- No aparece en el título -->
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!-- No aparece en el  -->
         <title>App Deustubular</title>
     </head>
     <body>
         <h1>Deustubular S.L</h1>
         <h2>{{ title_page }}</h2>
         {% block contenido %} {% endblock %}
+        
         <footer>
             <div>
 
