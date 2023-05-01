@@ -4,7 +4,6 @@
 {% block title_page %} {% endblock %}
 
 {% block contenido %}
-    <h1>Gestor de Empleados</h1>
 
     <!-- <h2>Listado de Equipos: </h2> -->
     <!-- mismo nombre que el diccionario donde guardamos los objetos -->
@@ -16,7 +15,8 @@
             {% for e in lista_equipos %}
             <li>
                 <!-- objeto marca, cada una tiene un id-->
-                <a href="{% url 'detail_equipo' e.id %}"> {{ e.marca }} </a></li>
+                <a href="{% url 'detail_equipo' e.id %}">{{ e.marca }}</a>
+            </li>
             {% endfor %}
         </ul>
     {% else %}

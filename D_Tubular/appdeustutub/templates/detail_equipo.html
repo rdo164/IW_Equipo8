@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-
+{% load static %}
 
 {% block title_page %} {% endblock %}
 
 {% block contenido %}
-    <h1>Gestor de Empleados</h1>
+    <h1>Gestor de Equipo</h1>
 
     <h2>Equipo</h2>
     <!-- mismo nombre que el diccionario donde guardamos los objetos -->
@@ -27,11 +27,9 @@
             <li> 
                 <p> Fecha de instalación: {{ equipo.fecha_instalacion }} </p>
             </li>
-            <!-- si hay recorrer equipos  -->
-            
             <li>
                 <!-- objeto marca, cada una tiene un id-->
-                <a href="appdeustutub/equipo/{{ e.id }}"> {{ e.marca }}</a>
+                <a href="/appdeustutub/equipo/{{ equipo.id }}/empleados/">Ver empleados</a>
             </li>
             
         </ul>

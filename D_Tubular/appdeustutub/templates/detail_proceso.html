@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title_page %} {% endblock%}
-
+{% block title_page %} {% endblock %}
 {% block contenido %}
     <div id="content">
         <h2>Datos del proceso</h2>
         {% if proceso %}
             <ul>
                 <li>
-                    {{ proceso.equipo}}
+                    {{ proceso.equipo }}
                 </li>
                 <li>
                     {{ proceso.codOrdenFabricacion}}
@@ -29,13 +28,29 @@
                 <li>
                     {{ proceso.fechaFin}}
                 </li>
+                
                 <li> 
-                    <!-- OJOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO -->
-                    <a href="/appdeustutub/proceso/{{ proceso.id }}/empleados">Ver empleados</a>
+                    <p> Lista de Empleados: </p>
+                    <!-- recorrer lista -->
+                    {% for empleado in lista_empleados %}
+                        
+                        <!-- 
+                        como 'empleado.proceso' no es un conjunto de objetos sino que 
+                        es una FK que apunta a un objeto de tipo Proceso.-->
+                        {% if empleado.proceso.nombreProceso == proceso.nombreProceso %}
+                
+                            <il>
+                                {{ empleado.nombre }} <br>
+                            </il>
+                
+                        {% endif %}
+                        
+                    {% endfor %}
+                  
                 </li>
             </ul>
         {% else %}
-            <p>No existe este proceso.</p>
+            <p> No existe este proceso.</p>
         {% endif %}
     </div>
 {% endblock %}

@@ -13,7 +13,7 @@ def index(request):
 # muestra todos los equipos
 def index_equipo(request):
 	equipos = Equipo.objects.order_by('marca')    
-    # context = {'title_page': ' ', 'marca' }
+    #                          titulo de index_equipo
 	context = {'title_page': 'Listado de equipos', 'lista_equipos': equipos}
 	return render(request, 'index_equipo.html', context)
 
@@ -34,8 +34,22 @@ def index_proceso(request):
 
 # devuelve los detalles del proceso solicitado
 def show_proceso(request, proceso_id):
-    proceso= get_object_or_404(Proceso, pk=proceso_id)
-    context = {'proceso': proceso }
+    
+    # empleados = Empleado.objects.order_by('nombre')
+    # innecesario este context 
+    # context1 = { 'lista_empleados': empleados}
+    # data_procesos = [
+    #     # el proceso
+    #     ['proceso': proceso], 
+    #     # lista de empleados
+    #     ['lista_empleados': empleados],
+    # ]
+    empleados = Empleado.objects.order_by('proceso')
+    
+
+    proceso = get_object_or_404(Proceso, pk=proceso_id)
+    context = {'proceso': proceso, 'lista_empleados': empleados}
+    #                                               si devuelves más de un context se reformate todo.
     return render (request, 'detail_proceso.html', context)
 
 # devuelve los empleados
@@ -50,3 +64,16 @@ def show_empleado(request, empleado_id):
     empleado = get_object_or_404(Empleado, pk=empleado_id)
     context = { 'empleado': empleado }
     return render(request, 'detail_empleado.html', context)
+
+# def show_empleado_equipo(request, equipo_id):
+    
+#     empleados = Empleado.objects.order_by('nombre')
+
+#     equipo = get_object_or_404(Equipo, pk=equipo_id)
+#     # empleado = get_object_or_404(Empleado, pk=empleado_id)
+
+#     context1 = { 'empleado': empleados }
+
+#     context2 = { 'equipo' : equipo }
+
+#     return render(request, 'detail_empleado_equipo.html', context1, context2)

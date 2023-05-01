@@ -13,8 +13,12 @@ class Equipo(models.Model):
     def __str__(self):
         return self.marca
     
+
+    
 class Proceso(models.Model):
     equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE)
+    # empleados_asignados = models.ForeignKey(Empleado, on_delete=models.CASCADE)
+
     codOrdenFabricacion = models.IntegerField(default=0)
     codigoProceso = models.IntegerField(default=0)
     nombreProceso = models.CharField(max_length=100)
@@ -24,6 +28,8 @@ class Proceso(models.Model):
 
     def __str__(self):
         return self.nombreProceso
+    
+    
 
 class Empleado(models.Model):
     equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE)
