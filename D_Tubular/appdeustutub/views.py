@@ -34,9 +34,8 @@ def index_proceso(request):
 
 # devuelve los detalles del proceso solicitado
 def show_proceso(request, proceso_id):
-    
+    # para poder mostrar los empleados asociados al proceso 
     empleados = Empleado.objects.order_by('proceso')
-
     proceso = get_object_or_404(Proceso, pk=proceso_id)
     context = {'proceso': proceso, 'lista_empleados': empleados}
     #                                               si devuelves más de un context se reformate todo.
@@ -54,3 +53,6 @@ def show_empleado(request, empleado_id):
     empleado = get_object_or_404(Empleado, pk=empleado_id)
     context = { 'empleado': empleado }
     return render(request, 'detail_empleado.html', context)
+
+def agregar_empleados():
+     
