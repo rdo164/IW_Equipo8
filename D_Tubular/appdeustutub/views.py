@@ -54,5 +54,5 @@ def show_empleado(request, empleado_id):
     context = { 'empleado': empleado }
     return render(request, 'detail_empleado.html', context)
 
-def agregar_empleados():
+# def agregar_empleados():
      
