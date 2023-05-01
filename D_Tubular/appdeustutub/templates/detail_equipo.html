@@ -29,7 +29,25 @@
             </li>
             <li>
                 <!-- objeto marca, cada una tiene un id-->
-                <a href="/appdeustutub/equipo/{{ equipo.id }}/empleados/">Ver empleados</a>
+                <p>Empleados asignados :</p>
+                {% for empleado in lista_empleados %}
+                    
+                    <!-- para comprobar que muestra la FK  -->
+                    <!-- {{ empleado.equipo }} -->
+                    <!-- 
+                        como 'empleado.proceso' no es un conjunto de objetos sino que 
+                        es una FK que apunta a un objeto de tipo Proceso.-->
+                    {% if empleado.equipo.marca == equipo.marca %}
+                
+                        <il>
+                            {{ empleado.nombre }} <br>
+                        </il>
+                
+                    {% endif %}
+                        
+                {% endfor %}
+                  
+                <!-- <a href="/appdeustutub/equipo/{{ equipo.id }}/empleados/">Ver empleados</a> -->
             </li>
             
         </ul>
