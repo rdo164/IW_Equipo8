@@ -1,8 +1,7 @@
 from django.db import models
 
 # Create your models here.
-#                    hereda de modelos
-#
+
 class Equipo(models.Model):
     modelo = models.CharField(max_length=200)
     marca = models.CharField(max_length=40)
@@ -17,8 +16,6 @@ class Equipo(models.Model):
     
 class Proceso(models.Model):
     equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE)
-    # empleados_asignados = models.ForeignKey(Empleado, on_delete=models.CASCADE)
-
     codOrdenFabricacion = models.IntegerField(default=0)
     codigoProceso = models.IntegerField(default=0)
     nombreProceso = models.CharField(max_length=100)
