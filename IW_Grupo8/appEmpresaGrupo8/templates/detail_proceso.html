@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Detalle del proceso</title>
+</head>
+
+<body>
+    <div id="content">
+        <h2>Datos del proceso</h2>
+        {% if proceso %}
+            <ul>
+                <li>
+                    {{ proceso.equipo}}
+                </li>
+                <li>
+                    {{ proceso.codOrdenFabricacion}}
+                </li>
+                <li>
+                    {{ proceso.codigoProceso}}
+                </li>
+                <li>
+                    {{ proceso.nombreProceso}}
+                </li>
+                <li>
+                    {{ proceso.referencia}}
+                </li>
+                <li>
+                    {{ proceso.fechaInicio}}
+                </li>
+                <li>
+                    {{ proceso.fechaFin}}
+                </li>
+                <li>
+                    <a href="/appEmpresaDjango/proceso/{{ proceso.id }}/empleados">Ver empleados</a>
+                </li>
+            </ul>
+        {% else %}
+            <p>No existe este proceso.</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>
