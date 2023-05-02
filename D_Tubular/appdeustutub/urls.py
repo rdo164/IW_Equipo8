@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 from .views import index
 
+
 urlpatterns =[
     # índice principal
     path('', views.index, name='index'),
@@ -16,6 +17,4 @@ urlpatterns =[
     path('proceso/<int:proceso_id>/',views.show_proceso, name='detail_proceso'),
     path('empleado/<int:empleado_id>/', views.show_empleado, name='detail_empleado'),
 
-    # detalles de empleados
-    # path('equipo/<int:equipo_id>/empleados/', views.show_empleado_equipo, name='detail_empleado_equipo'),
 ]

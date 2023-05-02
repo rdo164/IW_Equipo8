@@ -29,8 +29,8 @@
                     {{ proceso.fechaFin}}
                 </li>
                 
-                <li> 
-                    <p> Lista de Empleados: </p>
+                <li> <a href="D_Tubular\forms\appFormularioG8\templates\registro.html">
+                        <p> Lista de Empleados: </p>
                     <!-- recorrer lista -->
                     {% for empleado in lista_empleados %}
                         
@@ -46,7 +46,7 @@
                         {% endif %}
                         
                     {% endfor %}
-                  
+                    </a>
                 </li>
             </ul>
         {% else %}

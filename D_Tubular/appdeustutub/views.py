@@ -23,7 +23,7 @@ def show_equipo(request, equipo_id):
     empleados = Empleado.objects.order_by('proceso')
                           
     equipo = get_object_or_404(Equipo, pk=equipo_id)
-    # Título de la página
+    #                               Título de la página
     context = {'equipo': equipo, 'lista_empleados': empleados}
     return render(request, 'detail_equipo.html', context)
 
