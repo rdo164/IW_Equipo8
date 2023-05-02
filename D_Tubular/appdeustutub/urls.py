@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import index
+from .views import index, add_empleado
 
 
 urlpatterns =[
@@ -17,4 +17,7 @@ urlpatterns =[
     path('proceso/<int:proceso_id>/',views.show_proceso, name='detail_proceso'),
     path('empleado/<int:empleado_id>/', views.show_empleado, name='detail_empleado'),
 
+    # formularios
+    path('add_empleado/', views.add_empleado, name='add_empleado'),
+    
 ]

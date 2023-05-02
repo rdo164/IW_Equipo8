@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Empleado, Equipo, Proceso
 from django.shortcuts import get_object_or_404
+from django import forms
+from .forms import EmpleadoForm
 # Create your views here.
 
 # índice de la página
@@ -57,4 +59,30 @@ def show_empleado(request, empleado_id):
     return render(request, 'detail_empleado.html', context)
 
 # def agregar_empleados():
+from django.shortcuts import render, redirect
+from .forms import EmpleadoForm
+
+def add_empleado(request):
+    if request.method == 'POST':
+        form = EmpleadoForm(request.POST)
+        if form.is_valid():
+            empleado = form.save()
+            return redirect('index_empleado')
+    else:
+        form = EmpleadoForm()
+    return render(request, 'add_empleado.html', {'form': form})
+
+def add_equipo(request):
+    if request.method == 'POST':
+        form = EmpleadoForm(request.POST)
+        if form.is_valid():
+            empleado = form.save()
+            return redirect('index_empleado')
+    else:
+        form = EmpleadoForm()
+    return render(request, 'add_empleado.html', {'form': form})
+
+
+
+
      
