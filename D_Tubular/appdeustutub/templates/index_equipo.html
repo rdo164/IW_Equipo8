@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title_page %} {% endblock %}
+
+{% block contenido %}
+
+    <!-- <h2>Listado de Equipos: </h2> -->
+    <!-- mismo nombre que el diccionario donde guardamos los objetos -->
+    <!--comprobar si hay equipos  -->
+    {% if lista_equipos %}
+        <ul>
+
+            <!-- si hay recorrer equipos  -->
+            {% for e in lista_equipos %}
+            <li>
+                <!-- objeto marca, cada una tiene un id-->
+                <a href="{% url 'detail_equipo' e.id %}">{{ e.marca }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p> No existen equipos</p>
+    {% endif %}
+
+{% endblock %}

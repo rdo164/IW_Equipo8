@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title_page %} {% endblock%}
+{% block contenido %}
+    <div id="content">
+        <h1>Gestor de Empleados</h1>
+        <h2>Listado de empleados</h2>
+        <!-- ¿existen? -->
+        {% if lista_empleados %}
+            <ul>
+                <!-- recorrer -->
+                {% for empleado in lista_empleados %}
+                <li>
+                    <a href="{% url 'detail_empleado' empleado.id %}">{{ empleado.nombre }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>No hay empleados creados.</p>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+ 
+{% block title_page %} Gestor de Empleados {% endblock%}
+{% block contenido %}
+
+    <div id="content">
+        <h2>Listado de procesos</h2>
+        {% if lista_procesos %}
+            <ul>
+                {% for proceso in lista_procesos %}
+                    <li>      
+                        <a href="/appdeustutub/proceso/{{ proceso.id }}">{{ proceso.nombreProceso }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No hay procesos creados.</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+
