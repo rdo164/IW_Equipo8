@@ -1,45 +1,35 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 {% load static %}
-<html lang="en">
 
-<head>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <title>Detalle del empleado</title>
-    <h1>Deustubular S.L.</h1>
-</head>
+{% block contenido %}
+    <h2>Datos del empleado:</h2>
 
-<body>
-    <div id="content">
-        <h1>Gestor de Empleados</h1>
-        <h2>Datos del empleado</h2>
-        {% if empleado %}
-            <ul>
-                <li>
-                    <p>Equipo: </p>{{ empleado.equipo}}
-                </li>
-                <li>
-                    <p>Proceso: </p>{{ empleado.proceso}}
-                </li>
-                <li>
-                    <p>DNI: </p>{{ empleado.dni}}
-                </li>
-                <li>
-                    <p>Nombre: </p>{{ empleado.nombre}}
-                </li>
-                <li>
-                    <p>Apellido: </p>{{ empleado.apellidos}}
-                </li>
-                <li>
-                    <p>Email: </p>{{ empleado.email}}
-                </li>
-                <li>
-                    <p>Teléfono: </p>{{ empleado.telefono}}
-                </li>
-            </ul>
-        {% else %}
-            <p>No existe este empleado.</p>
-        {% endif %}
-    </div>
-</body>
-
-</html>
+    {% if empleado %}
+        <ul>
+            <li>
+                <p>Equipo: </p>{{ empleado.equipo}}
+            </li>
+            <li>
+                <p>Proceso: </p>{{ empleado.proceso}}
+            </li>
+            <li>
+                <p>DNI: </p>{{ empleado.dni}}
+            </li>
+            <li>
+                <p>Nombre: </p>{{ empleado.nombre}}
+            </li>
+            <li>
+                <p>Apellido: </p>{{ empleado.apellidos}}
+            </li>
+            <li>
+                <p>Email: </p>{{ empleado.email}}
+            </li>
+            <li>
+                <p>Teléfono: </p>{{ empleado.telefono}}
+            </li>
+        </ul>
+    {% else %}
+        <p>No existe este empleado.</p>
+    {% endif %}
+    
+{% endblock %}

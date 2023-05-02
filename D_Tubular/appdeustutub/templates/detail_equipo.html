@@ -4,7 +4,6 @@
 {% block title_page %} {% endblock %}
 
 {% block contenido %}
-    <h1>Gestor de Equipo</h1>
 
     <h2>Equipo</h2>
     <!-- mismo nombre que el diccionario donde guardamos los objetos -->
@@ -13,23 +12,27 @@
         <!-- caracteristicas de este -->
         <ul>
             <li>
-                <p> Marca:  {{ equipo.marca }}</p>
+                <p> Marca:</p>
+                {{ equipo.marca }}
             </li>
             <li>
-                <p> Modelo:  {{ equipo.modelo }}</p>
+                <p> Modelo: </p>
+                 {{ equipo.modelo }}
             </li>
             <li>
-                <p>Categoría: {{ equipo.categoria}}</p>
-            </li>
+                <p>Categoría: </p>
+                {{ equipo.categoria}}
             <li>
-                <p> Fecha de adquisición: {{ equipo.fecha_adquisicion}} </p>
+                <p> Fecha de adquisición:</p> 
+                {{ equipo.fecha_adquisicion}}
             </li>
             <li> 
-                <p> Fecha de instalación: {{ equipo.fecha_instalacion }} </p>
+                <p> Fecha de instalación: </p>
+                {{ equipo.fecha_instalacion }}
             </li>
             <li>
                 <!-- objeto marca, cada una tiene un id-->
-                <p>Empleados asignados :</p>
+                <p>Empleados asignados: </p>
                 {% for empleado in lista_empleados %}
                     
                     <!-- para comprobar que muestra la FK  -->
@@ -38,11 +41,9 @@
                         como 'empleado.proceso' no es un conjunto de objetos sino que 
                         es una FK que apunta a un objeto de tipo Proceso.-->
                     {% if empleado.equipo.marca == equipo.marca %}
-                
-                        <il>
+                            <il>
                             {{ empleado.nombre }} <br>
                         </il>
-                
                     {% endif %}
                         
                 {% endfor %}

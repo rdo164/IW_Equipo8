@@ -2,56 +2,80 @@
 {% load static %}
 
 {% block title_page %} {% endblock %}
+
 {% block contenido %}
-    <div id="content">
-        <h2>Datos del proceso</h2>
-        {% if proceso %}
-            <ul>
-                <li>
-                    {{ proceso.equipo }}
-                </li>
-                <li>
-                    {{ proceso.codOrdenFabricacion}}
-                </li>
-                <li>
-                    {{ proceso.codigoProceso}}
-                </li>
-                <li>
-                    {{ proceso.nombreProceso}}
-                </li>
-                <li>
-                    {{ proceso.referencia}}
-                </li>
-                <li>
-                    {{ proceso.fechaInicio}}
-                </li>
-                <li>
-                    {{ proceso.fechaFin}}
-                </li>
+    {% if proceso %}
+        <ul>
+            <li>
+                <p>
+                    Equipo:
+                </p>    
+                {{ proceso.equipo }}
                 
-                <li> <a href="D_Tubular\forms\appFormularioG8\templates\registro.html">
-                        <p> Lista de Empleados: </p>
-                    <!-- recorrer lista -->
-                    {% for empleado in lista_empleados %}
-                        
-                        <!-- 
-                        como 'empleado.proceso' no es un conjunto de objetos sino que 
-                        es una FK que apunta a un objeto de tipo Proceso.-->
-                        {% if empleado.proceso.nombreProceso == proceso.nombreProceso %}
+            </li>
+            <li>
+                <p>
+                    Código de orden de Fabricación:
+                </p>    
+                {{ proceso.codOrdenFabricacion}}
+            </li>
+            <li>
+                <p>
+                    Código del proceso: 
+                </p>
+                {{ proceso.codigoProceso}}
+            </li>
+            <li>
+                <p>
+                    Nombre del proceso:
+                </p>    
+                {{ proceso.nombreProceso}}
+            </li>
+            <li>
+                <p>
+                    Referencia:
+                </p>    
+                {{ proceso.referencia}}
+            </li>
+            <li>
                 
-                            <il>
-                                {{ empleado.nombre }} <br>
-                            </il>
+                <p>
+                    Fecha de Inicio:
+                </p>    
+                {{ proceso.fechaInicio}}
+            </li>
+            <li>
                 
-                        {% endif %}
-                        
-                    {% endfor %}
-                    </a>
-                </li>
-            </ul>
+                <p>
+                    Fecha fin:
+                </p>    
+                {{ proceso.fechaFin}}
+            </li>
+            
+            <li>
+
+                <!-- <a href="D_Tubular\forms\appFormularioG8\templates\registro.html"> -->
+                    <p> Lista de Empleados: </p>
+                <!-- recorrer lista -->
+                {% for empleado in lista_empleados %}
+                    
+                    <!-- 
+                    como 'empleado.proceso' no es un conjunto de objetos sino que 
+                    es una FK que apunta a un objeto de tipo Proceso.-->
+                    {% if empleado.proceso.nombreProceso == proceso.nombreProceso %}
+            
+                        <il>
+                            {{ empleado.nombre }} <br>
+                        </il>
+            
+                    {% endif %}
+                    
+                {% endfor %}
+                <!-- </a> -->
+            </li>
+        </ul>
         {% else %}
             <p> No existe este proceso.</p>
         {% endif %}
-    </div>
 {% endblock %}
 
