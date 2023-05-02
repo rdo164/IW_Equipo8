@@ -9,17 +9,36 @@
 </head>
 
 <body>
-    <h1>Deustubular S.L</h1>
-    <h2>{{ title_page }}</h2>
+    <header>
+        <h1 id="logo">DEUSTUBULAR S.L.</h1>
+    
+        <section id="buscador">
+            <form action="" method="get">
+                <fieldset>
+                    <legend>Buscador</legend>
+                    <input type="text" name="busqueda" size="30" placeholder="Búsqueda..." />
+                    <input type="submit" name="botonbuscar" value="Buscar" />
+                </fieldset>
+            </form>
+        </section>
+    </header>
     {% block contenido %} {% endblock %}
     
-    <footer>
-        <div>
-
+    <footer class="footer">
+        <p><a href="mailto:aitor.salazar@rpk.es?Subject=Este%20es%20nuestro%20proyecto%20:">soluciones@empresa.es</a></br> Copyright © Company </p>
+        
+        <div class="RedesSociales">
+            <a href="https://www.facebook.com"> <img src="./IMAGES/FACEBOOK .png" alt="FACEBOOK"  ></a> 
+            <a href="https://twitter.com"><img src="./IMAGES/TWITTER.png" alt="TWITTER"  ></a>
+            <a href="https://www.youtube.com/"><img src="./IMAGES/YOUTUBE.png" alt="YOUTUBE" ></a>
         </div>
-        <div>
-            <p>Derechos reservados © 2023</p>
-        </div>
+    
+        <section class="EnlacesFooter">
+            <a href="https://policies.google.com/privacy?hl=es">Política de privacidad</a>
+            <a href="https://www.google.com/intl/es_ALL/help/attribution_maps/">Aviso legal</a>
+            <a href="https://support.google.com/chrome/answer/9564">Cookies</a>
+        </section>
+    
     </footer>
     
 </body>
