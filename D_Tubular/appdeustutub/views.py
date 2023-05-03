@@ -11,7 +11,6 @@ from django.urls import reverse_lazy
 
 # índice de la página
 def index(request):
-    #           referenciar el título de la página
     # context = {'title_page': 'Seleccione una opción:'}
     return render(request, 'index.html')
 
@@ -19,7 +18,7 @@ def index(request):
 def index_equipo(request):
 	equipos = Equipo.objects.order_by('marca')    
     #                          titulo de index_equipo
-	context = {'title_page': 'Listado de equipos', 'lista_equipos': equipos}
+	context = { 'lista_equipos': equipos}
 	return render(request, 'index_equipo.html', context)
 
 # devuelve los detalles del equipo solicitado
