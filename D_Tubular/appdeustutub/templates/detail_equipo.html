@@ -28,7 +28,6 @@
                 <p> Fecha de instalación: {{ equipo.fecha_instalacion }} </p>
             </li>
             <li>
-                <!-- objeto marca, cada una tiene un id-->
                 <p>Empleados asignados :</p>
                 {% for empleado in lista_empleados %}
                     
@@ -46,6 +45,14 @@
                     {% endif %}
                         
                 {% endfor %}
+            <li>
+                <p> <a href="{% url 'borrar_equipo' equipo.id %}"><strong>Borrar equipo</stong></a> </p>
+            </li>
+            <li>
+                <p> <a href="{% url 'modificar_equipo' equipo.id %}">Modificar equipo</a> </p>
+            </li>
+                
+                
                   
                 <!-- <a href="/appdeustutub/equipo/{{ equipo.id }}/empleados/">Ver empleados</a> -->
             </li>

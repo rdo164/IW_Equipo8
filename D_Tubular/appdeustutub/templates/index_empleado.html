@@ -6,6 +6,7 @@
 {% block contenido %}
     <div id="content">
         <h1>Gestor de Empleados</h1>
+        <li><a href="{% url 'add_empleado' %}">Añadir un empleado</a></li>
         <h2>Listado de empleados</h2>
         <!-- ¿existen? -->
         {% if lista_empleados %}

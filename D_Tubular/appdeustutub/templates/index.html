@@ -3,16 +3,11 @@
 
 {% block title_page %} {% endblock %}
 
-<!-- Inicializar contenido -->
 {% block contenido %}
-
-<h1> Seleccione una opción:</h1>
-<ul>
-    <li><a href="{% url 'index_equipo' %}">Equipo</a></li>
-    <li><a href="{% url 'index_proceso' %}">Procesos</a></li>
-    <li><a href="{% url 'index_empleado' %}">Empleados</a></li>
-    <li><a href="{% url 'add_empleado' %}">Añadir un empleado</a></li>
-</ul>
-
+    <h1> Seleccione una opción:</h1>
+    <ul>
+        <li><a href="{% url 'index_equipo' %}">Equipo</a></li>
+        <li><a href="{% url 'index_proceso' %}">Procesos</a></li>
+        <li><a href="{% url 'index_empleado' %}">Empleados</a></li>       
+    </ul>
 {% endblock %}
-<!-- finalizar contenido -->

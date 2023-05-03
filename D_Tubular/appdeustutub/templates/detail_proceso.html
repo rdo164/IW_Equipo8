@@ -46,8 +46,14 @@
                         {% endif %}
                         
                     {% endfor %}
-                    </a>
+
+                    {% comment %} <a href="{% url 'modificar_proceso' proceso.id %}">Editar proceso</a> {% endcomment %}
+                <li>  <p>
+                        <a href="{% url 'borrar_proceso' proceso.id %}"><strong>Borrar proceso</strong></a>
+                    </p> 
                 </li>
+                <li>
+                    <p> <a href="{% url 'modificar_proceso' proceso.id %}"><strong>Modificar proceso</strong></a>
             </ul>
         {% else %}
             <p> No existe este proceso.</p>

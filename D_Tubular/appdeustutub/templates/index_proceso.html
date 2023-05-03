@@ -7,12 +7,17 @@
 
     <div id="content">
         <h2>Listado de procesos</h2>
+        <li><a href="{% url 'add_proceso' %}">Añadir un proceso</a></li>
         {% if lista_procesos %}
             <ul>
                 {% for proceso in lista_procesos %}
                     <li>      
                         <a href="/appdeustutub/proceso/{{ proceso.id }}">{{ proceso.nombreProceso }}</a>
+                        <a href="{% url 'borrar_proceso' proceso.id %}"></a>
+                        <a href="{% url 'modificar_proceso' proceso.id %}"></a>
                     </li>
+                {% empty %}
+            <li>No hay procesos disponibles.</li>
                 {% endfor %}
             </ul>
         {% else %}

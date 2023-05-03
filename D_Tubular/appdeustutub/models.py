@@ -3,16 +3,14 @@ from django.db import models
 # Create your models here.
 
 class Equipo(models.Model):
-    modelo = models.CharField(max_length=200)
-    marca = models.CharField(max_length=40)
-    categoria = models.CharField(max_length=200)
+    modelo = models.CharField(max_length=100)
+    marca = models.CharField(max_length=100)
+    categoria = models.CharField(max_length=100)
     fecha_adquisicion = models.DateField()
     fecha_instalacion = models.DateField()
     
     def __str__(self):
         return self.marca
-    
-
     
 class Proceso(models.Model):
     equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE)
@@ -20,14 +18,12 @@ class Proceso(models.Model):
     codigoProceso = models.IntegerField(default=0)
     nombreProceso = models.CharField(max_length=100)
     referencia = models.CharField(max_length=100)
-    fechaInicio = models.DateTimeField()
-    fechaFin = models.DateTimeField()
+    fechaInicio = models.DateField()
+    fechaFin = models.DateField()
 
     def __str__(self):
         return self.nombreProceso
     
-    
-
 class Empleado(models.Model):
     equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE)
     proceso = models.ForeignKey(Proceso, on_delete=models.CASCADE)

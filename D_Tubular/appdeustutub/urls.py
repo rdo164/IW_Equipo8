@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import index, add_empleado
+from .views import index, add_empleado, borrar_proceso, borrar_equipo
 
 
 urlpatterns =[
@@ -17,7 +17,19 @@ urlpatterns =[
     path('proceso/<int:proceso_id>/',views.show_proceso, name='detail_proceso'),
     path('empleado/<int:empleado_id>/', views.show_empleado, name='detail_empleado'),
 
-    # formularios
+    # añadir
     path('add_empleado/', views.add_empleado, name='add_empleado'),
+    path('add_equipo/', views.add_equipo, name='add_equipo'),
+    path('add_proceso/', views.add_proceso, name='add_proceso'),
+    
+    # borrar
+    path('proceso/borrar/<int:proceso_id>/', views.borrar_proceso, name='borrar_proceso'),
+    path('equipo/borrar/<int:equipo_id>/', views.borrar_equipo, name='borrar_equipo'),
+    
+    # modificar
+    path('equipo/modificar/<int:equipo_id>/', views.modificar_equipo, name='modificar_equipo'),
+    path('proceso/modificar/<int:proceso_id>/', views.modificar_proceso, name='modificar_proceso'),
+
+    
     
 ]

@@ -6,6 +6,7 @@
 {% block contenido %}
 
     <!-- <h2>Listado de Equipos: </h2> -->
+    <li><a href="{% url 'add_equipo' %}">Añadir un equipo</a></li>
     <!-- mismo nombre que el diccionario donde guardamos los objetos -->
     <!--comprobar si hay equipos  -->
     {% if lista_equipos %}
@@ -16,6 +17,8 @@
             <li>
                 <!-- objeto marca, cada una tiene un id-->
                 <a href="{% url 'detail_equipo' e.id %}">{{ e.marca }}</a>
+                <a href="{% url 'borrar_equipo' e.id %}"></a>
+                <a href="{% url 'modificar_equipo' e.id %}"></a>
             </li>
             {% endfor %}
         </ul>

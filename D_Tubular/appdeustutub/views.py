@@ -1,9 +1,12 @@
-from django.shortcuts import render
+from django.views.generic import DetailView, ListView, DeleteView, UpdateView, CreateView
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Empleado, Equipo, Proceso
 from django.shortcuts import get_object_or_404
 from django import forms
-from .forms import EmpleadoForm
+from .forms import EmpleadoForm, EquipoForm, ProcesoForm
+from django.urls import reverse_lazy
+
 # Create your views here.
 
 # índice de la página
@@ -31,7 +34,6 @@ def show_equipo(request, equipo_id):
 
 # devuelve los procesos
 def index_proceso(request):
-    #                                     models.py!
     procesos = Proceso.objects.order_by('nombreProceso')
     context = {'lista_procesos': procesos}
     return render(request, 'index_proceso.html', context)
@@ -58,9 +60,7 @@ def show_empleado(request, empleado_id):
     context = { 'empleado': empleado }
     return render(request, 'detail_empleado.html', context)
 
-# def agregar_empleados():
-from django.shortcuts import render, redirect
-from .forms import EmpleadoForm
+# Métodos para añadir empleados, procesos y equipos:
 
 def add_empleado(request):
     if request.method == 'POST':
@@ -74,15 +74,63 @@ def add_empleado(request):
 
 def add_equipo(request):
     if request.method == 'POST':
-        form = EmpleadoForm(request.POST)
+        form = EquipoForm(request.POST)
         if form.is_valid():
-            empleado = form.save()
-            return redirect('index_empleado')
+            form.save()
+            return redirect('index_equipo')
     else:
-        form = EmpleadoForm()
-    return render(request, 'add_empleado.html', {'form': form})
+        form = EquipoForm()
+    return render(request, 'add_equipo.html', {'form': form})
 
+def add_proceso(request):
+    if request.method == 'POST':
+        form = ProcesoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index_proceso')
+    else:
+        form = ProcesoForm()
+    return render(request, 'add_proceso.html', {'form': form})
 
+# Borrar creaciones anteriores:
+
+def borrar_proceso(request, proceso_id):
+    proceso = get_object_or_404(Proceso, id=proceso_id)
+    if request.method == 'POST':
+        proceso.delete()
+        return redirect('index_proceso')
+    return render(request, 'confirmar_borrar_proceso.html', {'proceso': proceso})
+
+def borrar_equipo(request, equipo_id):
+    equipo = get_object_or_404(Equipo, id=equipo_id)
+    if request.method == 'POST':
+        equipo.delete()
+        return redirect('index_equipo')
+    return render(request, 'confirmar_borrar_equipo.html', {'equipo': equipo})
+
+# Modificar creaciones anteriores:
+
+def modificar_equipo(request, equipo_id):
+    equipo = get_object_or_404(Equipo, pk=equipo_id)
+    if request.method == 'POST':
+        form = EquipoForm(request.POST, instance=equipo)
+        if form.is_valid():
+            form.save()
+            return redirect('detail_equipo', equipo_id=equipo_id)
+    else:
+        form = EquipoForm(instance=equipo)
+    return render(request, 'modificar_equipo.html', {'form': form})
+
+def modificar_proceso(request, proceso_id):
+    proceso = get_object_or_404(Proceso, pk=proceso_id)
+    if request.method == 'POST':
+        form = ProcesoForm(request.POST, instance=proceso)
+        if form.is_valid():
+            form.save()
+            return redirect('detail_proceso', proceso_id=proceso_id)
+    else:
+        form = ProcesoForm(instance=proceso)
+    return render(request, 'modificar_proceso.html', {'form': form})
 
 
      
