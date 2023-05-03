@@ -1,7 +1,8 @@
 # IW_Grupo8
-Django project <br>
+Django project.
+---
 ## [Repositorio de Github:](https://github.com/rdo164/IW_Grupo8) 
-
+---
 ## Estructura de datos
 
 - ### README.md
@@ -27,7 +28,8 @@ Django project <br>
     - ##### views.py
   
   - ### [static](https://github.com/rdo164/IW_Grupo8/tree/master/D_Tubular/static)/ 
-    - ##### style.css
+    - ##### [css](https://github.com/rdo164/IW_Equipo8/tree/master/D_Tubular/static/css)
+    - ##### [images](https://github.com/rdo164/IW_Equipo8/tree/master/D_Tubular/static/images)
 
   - ### db.sqlite3 
   - ### manage.py
@@ -36,8 +38,6 @@ Django project <br>
 ## Funcionalidades adicionales
 > ### **Borrar**, **Añadir** y **Actualizar** :
 > - Empleado 
-
-
 
 
 
