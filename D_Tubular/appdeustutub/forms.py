@@ -1,26 +1,12 @@
-from .models import Empleado, Equipo, Proceso
 from django import forms
+from .models import Empleado, Equipo
 
-
-# Metodo para que aparezcan todos los datos a añadir segun el modelo al que se refiera
-
-class equipoAnadirForm(forms.ModelForm):
-    class Meta:
-        model = Equipo
-        fields = '__all__'
-
-class empleadoAnadirForm(forms.ModelForm):
+class EmpleadoForm(forms.ModelForm):
     class Meta:
         model = Empleado
-        fields = '__all__'
-
-class procesoAnadirForm(forms.ModelForm):
-    class Meta:
-        model = Proceso
-        fields = '__all__'
-
-
-
-
-    
-    
+        fields = ['equipo', 'proceso', 'dni', 'nombre', 'apellidos', 'email', 'telefono']
+        
+# class EquipoForm(forms.ModelForm):
+#     class Meta:
+#         model = Equipo
+#         fields = ['modelo', 'marca', 'categoria', 'fecha_adquisicion', 'fecha_insatalacion']

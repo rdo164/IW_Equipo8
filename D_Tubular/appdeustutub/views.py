@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Empleado, Equipo, Proceso
 from django.shortcuts import get_object_or_404
+from django.views.generic.edit import UpdateView
+from django.shortcuts import render, redirect
+from .forms import EmpleadoForm
+
 # Create your views here.
 
 # índice de la página
@@ -56,4 +60,32 @@ def show_empleado(request, empleado_id):
     context = { 'empleado': empleado }
     return render(request, 'detail_empleado.html', context)
 
-     
+# **************************************************************************
+#                       FORMULARIOS
+#***************************************************************************
+
+# def agregar_empleados():
+def add_empleado(request):
+    if request.method == 'POST':
+        form = EmpleadoForm(request.POST)
+        if form.is_valid():
+            empleado = form.save()
+            return redirect('index_empleado')
+    else:
+        form = EmpleadoForm()
+    return render(request, 'add_empleado.html', {'form': form})
+
+def add_equipo(request):
+    if request.method == 'POST':
+        form = EmpleadoForm(request.POST)
+        if form.is_valid():
+            empleado = form.save()
+            return redirect('index_empleado')
+    else:
+        form = EmpleadoForm()
+    return render(request, 'add_empleado.html', {'form': form})
+# MODIFICAR EMPLEADO
+class EmpleadoUpdateView(UpdateView):
+    model = Empleado
+    fields = {"equipo","proceso","dni","nombre","apellidos","email","telefono"}
+    template_name_suffix = "_update_form"
