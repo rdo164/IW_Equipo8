@@ -4,10 +4,12 @@
 {% block title_page %} {% endblock %}
 
 {% block contenido %}
+<div id="content">
     <h1> Seleccione una opción:</h1>
     <ul>
         <li><a href="{% url 'index_equipo' %}">Equipo</a></li>
         <li><a href="{% url 'index_proceso' %}">Procesos</a></li>
         <li><a href="{% url 'index_empleado' %}">Empleados</a></li>       
     </ul>
+</div>
 {% endblock %}

@@ -4,62 +4,63 @@
 {% block title_page %} {% endblock %}
 
 {% block contenido %}
-    <h1>Gestor de Equipo</h1>
+    <div id="content">
+        <h1>Gestor de Equipo</h1>
 
-    <h2>Equipo</h2>
-    <!-- mismo nombre que el diccionario donde guardamos los objetos -->
-    <!--comprobar si existe el equipo  -->
-    {% if equipo %}
-        <!-- caracteristicas de este -->
-        <ul>
-            <li>
-                <p> Marca:  {{ equipo.marca }}</p>
-            </li>
-            <li>
-                <p> Modelo:  {{ equipo.modelo }}</p>
-            </li>
-            <li>
-                <p>Categoría: {{ equipo.categoria}}</p>
-            </li>
-            <li>
-                <p> Fecha de adquisición: {{ equipo.fecha_adquisicion}} </p>
-            </li>
-            <li> 
-                <p> Fecha de instalación: {{ equipo.fecha_instalacion }} </p>
-            </li>
-            <li>
-                <p>Empleados asignados :</p>
-                {% for empleado in lista_empleados %}
-                    
-                    <!-- para comprobar que muestra la FK  -->
-                    <!-- {{ empleado.equipo }} -->
-                    <!-- 
-                        como 'empleado.proceso' no es un conjunto de objetos sino que 
-                        es una FK que apunta a un objeto de tipo Proceso.-->
-                    {% if empleado.equipo.marca == equipo.marca %}
-                
-                        <il>
-                            {{ empleado.nombre }} <br>
-                        </il>
-                
-                    {% endif %}
+        <h2>Equipo</h2>
+        <!-- mismo nombre que el diccionario donde guardamos los objetos -->
+        <!--comprobar si existe el equipo  -->
+        {% if equipo %}
+            <!-- caracteristicas de este -->
+            <ul>
+                <li>
+                    <p> Marca:  {{ equipo.marca }}</p>
+                </li>
+                <li>
+                    <p> Modelo:  {{ equipo.modelo }}</p>
+                </li>
+                <li>
+                    <p>Categoría: {{ equipo.categoria}}</p>
+                </li>
+                <li>
+                    <p> Fecha de adquisición: {{ equipo.fecha_adquisicion}} </p>
+                </li>
+                <li> 
+                    <p> Fecha de instalación: {{ equipo.fecha_instalacion }} </p>
+                </li>
+                <li>
+                    <p>Empleados asignados :</p>
+                    {% for empleado in lista_empleados %}
                         
-                {% endfor %}
-            <li>
-                <p> <a href="{% url 'borrar_equipo' equipo.id %}"><strong>Borrar equipo</stong></a> </p>
-            </li>
-            <li>
-                <p> <a href="{% url 'modificar_equipo' equipo.id %}">Modificar equipo</a> </p>
-            </li>
+                        <!-- para comprobar que muestra la FK  -->
+                        <!-- {{ empleado.equipo }} -->
+                        <!-- 
+                            como 'empleado.proceso' no es un conjunto de objetos sino que 
+                            es una FK que apunta a un objeto de tipo Proceso.-->
+                        {% if empleado.equipo.marca == equipo.marca %}
+                    
+                            <il>
+                                {{ empleado.nombre }} <br>
+                            </il>
+                    
+                        {% endif %}
+                            
+                    {% endfor %}
+                <li>
+                    <p> <a href="{% url 'borrar_equipo' equipo.id %}"><strong>Borrar equipo</stong></a> </p>
+                </li>
+                <li>
+                    <p> <a href="{% url 'modificar_equipo' equipo.id %}">Modificar equipo</a> </p>
+                </li>
+                    
+                    
+                    
+                    <!-- <a href="/appdeustutub/equipo/{{ equipo.id }}/empleados/">Ver empleados</a> -->
+                </li>
                 
-                
-                  
-                <!-- <a href="/appdeustutub/equipo/{{ equipo.id }}/empleados/">Ver empleados</a> -->
-            </li>
-            
-        </ul>
-    {% else %}
-        <p> No existen detalles del equipo</p>
-    {% endif %}
-
+            </ul>
+        {% else %}
+            <p> No existen detalles del equipo</p>
+        {% endif %}
+    </div>
 {% endblock %}

@@ -1,19 +1,18 @@
+{% extends "base.html" %}
+
 {% load static %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Añadir equipo</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
-<body>
-    <div id="add_equipo">
-        <h1>Añadir equipo</h1>
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Guardar">
-        </form>
+{% block contenido %}
+    <div id="content">
+
+        <div id="add_equipo">
+            <h1>Añadir equipo</h1>
+            <form id="formulario" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Guardar">
+            </form>
+        
     </div>
-</body>
-</html>
+    </div>
+{% endblock %}

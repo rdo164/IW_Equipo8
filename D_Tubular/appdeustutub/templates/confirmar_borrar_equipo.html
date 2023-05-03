@@ -4,10 +4,12 @@
 {% block title_page %} Confirmar borrar equipo {% endblock %}
 
 {% block contenido %}
-    <h1>Confirmar borrar equipo</h1>
-    <p>¿Estás seguro de que deseas borrar el equipo "{{ equipo.nombre }}"?</p>
-    <form action="{% url 'borrar_equipo' equipo_id=equipo.id %}" method="POST">
-        {% csrf_token %}
-        <input type="submit" value="Borrar">
-    </form>
+    <div id="content">
+        <h1>Confirmar borrar equipo</h1>
+        <p>¿Estás seguro de que deseas borrar el equipo "{{ equipo.marca }}"?</p>
+        <form action="{% url 'borrar_equipo' equipo_id=equipo.id %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Borrar">
+        </form>
+    </div>
 {% endblock %}
