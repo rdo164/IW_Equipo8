@@ -1,14 +1,8 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 {% load static %}
-<html lang="en">
 
-<head>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <title>Detalle del empleado</title>
-    <h1>Deustubular S.L.</h1>
-</head>
 
-<body>
+{% block contenido %}
     <div id="content">
         <h1>Gestor de Empleados</h1>
         <h2>Datos del empleado</h2>
@@ -40,6 +34,4 @@
             <p>No existe este empleado.</p>
         {% endif %}
     </div>
-</body>
-
-</html>
+{% endblock %}
