@@ -20,6 +20,10 @@ a {
   color: #333;
 }
 
+nav {
+  margin-left: auto;
+}
+
 /* Estilos específicos para el contenido */
 #content {
   display: flex;

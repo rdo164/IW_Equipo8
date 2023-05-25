@@ -28,23 +28,23 @@
                     {{ proceso.fechaFin}}
                 </li>
                 
-                <li> <a href="D_Tubular\forms\appFormularioG8\templates\registro.html">
+                <li> <a href="{% url 'index_empleado' %}">
                         <p> Lista de Empleados: </p>
                     <!-- recorrer lista -->
-                    {% for empleado in lista_empleados %}
-                        
+                    <!-- {% for empleado in lista_empleados %}
+                         -->
                         <!-- 
                         como 'empleado.proceso' no es un conjunto de objetos sino que 
                         es una FK que apunta a un objeto de tipo Proceso.-->
-                        {% if empleado.proceso.nombreProceso == proceso.nombreProceso %}
+                        <!-- {% if empleado.proceso.nombreProceso == proceso.nombreProceso %} -->
                 
-                            <il>
-                                {{ empleado.nombre }} <br>
-                            </il>
+                            <li>
+                                {{ proceso.empleado.nombre }} 
+                            </li>
                 
-                        {% endif %}
+                        <!-- {% endif %}
                         
-                    {% endfor %}
+                    {% endfor %} -->
 
                     {% comment %} <a href="{% url 'modificar_proceso' proceso.id %}">Editar proceso</a> {% endcomment %}
                 <li>  <p>
