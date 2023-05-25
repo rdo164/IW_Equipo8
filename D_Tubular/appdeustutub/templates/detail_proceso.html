@@ -2,61 +2,50 @@
 {% load static %}
 
 {% block contenido %}
-    <div id="content">
-        <h2>Datos del proceso</h2>
-        {% if proceso %}
-            <ul>
-                <li>
-                    {{ proceso.equipo }}
-                </li>
-                <li>
-                    {{ proceso.codOrdenFabricacion}}
-                </li>
-                <li>
-                    {{ proceso.codigoProceso}}
-                </li>
-                <li>
-                    {{ proceso.nombreProceso}}
-                </li>
-                <li>
-                    {{ proceso.referencia}}
-                </li>
-                <li>
-                    {{ proceso.fechaInicio}}
-                </li>
-                <li>
-                    {{ proceso.fechaFin}}
-                </li>
-                
-                <li> <a href="{% url 'index_empleado' %}">
-                        <p> Lista de Empleados: </p>
-                    <!-- recorrer lista -->
-                    <!-- {% for empleado in lista_empleados %}
-                         -->
-                        <!-- 
-                        como 'empleado.proceso' no es un conjunto de objetos sino que 
-                        es una FK que apunta a un objeto de tipo Proceso.-->
-                        <!-- {% if empleado.proceso.nombreProceso == proceso.nombreProceso %} -->
-                
-                            <li>
-                                {{ proceso.empleado.nombre }} 
-                            </li>
-                
-                        <!-- {% endif %}
-                        
-                    {% endfor %} -->
+<div id="content">
+    <h2>Datos del proceso</h2>
+    {% if proceso %}
+    <table>
+        <tr>
+            <th>Equipo</th>
+            <th>Código Orden</th>
+            <th>Código Proceso</th>
+            <th>Nombre</th>
+            <th>Referencia</th>
+            <th>Fecha Inicio</th>
+            <th>Fecha Fin</th>
+            <th>Empleados Asociados</th>
+            <th>-------------------</th>
+            <th>-------------------</th>
+        </tr>
+        <tr>
+            <td>{{ proceso.equipo }}</td>
+            <td>{{ proceso.codOrdenFabricacion }}</td>
+            <td>{{ proceso.codigoProceso }}</td>
+            <td>{{ proceso.nombreProceso }}</td>
+            <td>{{ proceso.referencia }}</td>
+            <td>{{ proceso.fechaInicio }}</td>
+            <td>{{ proceso.fechaFin }}</td>
+            <td>
+                <ul>
+                    <li><a href="{% url 'index_empleado' %}"><strong>Lista de Empleados</strong></a></li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li><a href="{% url 'borrar_proceso' proceso.id %}"><strong>Borrar proceso</strong></a></li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li><a href="{% url 'modificar_proceso' proceso.id %}"><strong>Modificar proceso</strong></a></li>
+                </ul>
+            </td>
 
-                    {% comment %} <a href="{% url 'modificar_proceso' proceso.id %}">Editar proceso</a> {% endcomment %}
-                <li>  <p>
-                        <a href="{% url 'borrar_proceso' proceso.id %}"><strong>Borrar proceso</strong></a>
-                    </p> 
-                </li>
-                <li>
-                    <p> <a href="{% url 'modificar_proceso' proceso.id %}"><strong>Modificar proceso</strong></a>
-            </ul>
-        {% else %}
-            <p> No existe este proceso.</p>
-        {% endif %}
-    </div>
+        </tr>
+    </table>
+    {% else %}
+    <p> No existe este proceso.</p>
+    {% endif %}
+</div>
 {% endblock %}
-

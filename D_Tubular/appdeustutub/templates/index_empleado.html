@@ -1,24 +1,50 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title_page %} {% endblock %}
 
 {% block contenido %}
-    <div id="content">
-        <h1>Gestor de Empleados</h1>
-        <li><a href="{% url 'add_empleado' %}">Añadir un empleado</a></li>
-        <h2>Listado de empleados</h2>
-        <!-- ¿existen? -->
+<div id="content">
+
+    <ul>
+        <li><a href="{% url 'add_empleado' %}"><strong>
+                    <h3>Añadir un empleado</h3>
+                </strong></a></li>
+    </ul>
+    <h2>Listado de Empleados</h2>
+    <ul>
+        <!-- Comprobar si hay equipos -->
         {% if lista_empleados %}
-            <ul>
-                <!-- recorrer -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>DNI</th>
+                    <th>Equipos Asociados</th>
+                    <th>Procesos Asociados</th>
+                    <th>-----------</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Recorrer equipos -->
                 {% for empleado in lista_empleados %}
-                <li>
-                    <a href="{% url 'detail_empleado' empleado.id %}">{{ empleado.nombre }}</a>
-                </li>
+                <tr>
+                    <!-- Mostrar marca y modelo del equipo -->
+                    <td>{{ empleado.nombre }}</td>
+                    <td>{{ empleado.dni }}</td>
+                    <td>{{ empleado.equipo }}</td>
+                    <td>{{ empleado.proceso }}</td>
+                    <td>
+                        <ul>
+                            <li><a href="{% url 'detail_empleado' empleado.id %}"><strong>Detalles</strong></a></li>
+                        </ul>
+                    </td>
+                </tr>
                 {% endfor %}
-            </ul>
-            {% else %}
-            <p>No hay empleados creados.</p>
+            </tbody>
+        </table>
+        {% else %}
+        <p>No existen equipos</p>
         {% endif %}
-    </div>
+</div>
 {% endblock %}

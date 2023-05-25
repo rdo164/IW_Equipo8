@@ -3,16 +3,13 @@
 {% load static %}
 
 {% block contenido %}
-    <div id="content">
+<div id="content">
 
-        <div id="add_equipo">
-            <h1>Añadir equipo</h1>
-            <form id="formulario" method="POST">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" value="Guardar">
-            </form>
-        
-    </div>
-    </div>
+    <h1>Añadir equipo</h1>
+    <form id="formulario" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Guardar">
+    </form>
+</div>
 {% endblock %}

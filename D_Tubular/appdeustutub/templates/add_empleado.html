@@ -2,16 +2,13 @@
 {% load static %}
 
 {% block contenido %}
-    <div id="content">
 
-        <div id="content">
-        <div id="add_empleado">
-            <h1>Añadir empleado</h1>
-            <form id="formulario" method="POST">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" value="Guardar">
-            </form>
-        </div>
+    <div id="content">
+        <h1>Añadir empleado</h1>
+        <form id="formulario" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Guardar">
+        </form>
     </div>
-{% endblock %}
+    {% endblock %}

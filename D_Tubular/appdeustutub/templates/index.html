@@ -1,8 +1,48 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
 
+{% block title_page %} {% endblock %}
 
 {% block contenido %}
 <div id="content">
+
+    <ul>
+        <li><a href="{% url 'add_equipo' %}"><strong>
+                    <h3>Añadir un equipo</h3>
+                </strong></a></li>
+    </ul>
+    <h2>Listado de Equipos:</h2>
+    <ul>
+        <!-- Comprobar si hay equipos -->
+        {% if lista_equipos %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Proceso Asociado</th>
+                    <th>-----------</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Recorrer equipos -->
+                {% for equipo in lista_equipos %}
+                <tr>
+                    <!-- Mostrar marca y modelo del equipo -->
+                    <td>{{ equipo.marca }}</td>
+                    <td>{{ equipo.modelo }}</td>
+                    <td>{{ proceso.equipo }}</td>
+                    <td>
+                        <ul>
+                            <li><a href="{% url 'detail_equipo' equipo.id %}"><strong>Detalles</strong></a></li>
+                        </ul>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No existen equipos</p>
+        {% endif %}
 </div>
 {% endblock %}

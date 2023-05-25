@@ -29,7 +29,4 @@ urlpatterns =[
     # modificar
     path('equipo/modificar/<int:equipo_id>/', views.modificar_equipo, name='modificar_equipo'),
     path('proceso/modificar/<int:proceso_id>/', views.modificar_proceso, name='modificar_proceso'),
-
-    
-    
 ]

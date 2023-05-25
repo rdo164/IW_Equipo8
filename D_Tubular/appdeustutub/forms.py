@@ -21,6 +21,6 @@ class ProcesoForm(forms.ModelForm):
         model = Proceso
         fields = ['equipo', 'codOrdenFabricacion', 'codigoProceso', 'nombreProceso', 'referencia', 'fechaInicio', 'fechaFin']
         widgets = {
-            'fecha_inicio': forms.DateInput(attrs={'type': 'date'}),
-            'fecha_fin': forms.DateInput(attrs={'type': 'date'})
+            'fechaInicio': forms.DateInput(attrs={'type': 'date'}),
+            'fechaFin': forms.DateInput(attrs={'type': 'date'})
         }

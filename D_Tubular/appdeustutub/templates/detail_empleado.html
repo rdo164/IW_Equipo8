@@ -1,37 +1,37 @@
 {% extends "base.html" %}
 {% load static %}
 
-
 {% block contenido %}
-    <div id="content">
-        <h1>Gestor de Empleados</h1>
-        <h2>Datos del empleado</h2>
-        {% if empleado %}
-            <ul>
-                <li>
-                    <p>Equipo: </p>{{ empleado.equipo}}
-                </li>
-                <li>
-                    <p>Proceso: </p>{{ empleado.proceso}}
-                </li>
-                <li>
-                    <p>DNI: </p>{{ empleado.dni}}
-                </li>
-                <li>
-                    <p>Nombre: </p>{{ empleado.nombre}}
-                </li>
-                <li>
-                    <p>Apellido: </p>{{ empleado.apellidos}}
-                </li>
-                <li>
-                    <p>Email: </p>{{ empleado.email}}
-                </li>
-                <li>
-                    <p>Teléfono: </p>{{ empleado.telefono}}
-                </li>
-            </ul>
-        {% else %}
-            <p>No existe este empleado.</p>
-        {% endif %}
-    </div>
+<div id="content">
+    <h2>Gestor de Empleados</h2>
+    <!-- Comprobar si existe el equipo -->
+    {% if empleado %}
+    <!-- Características de este -->
+    <table>
+        <tr>
+            <th>Equipo</th>
+            <th>Proceso</th>
+            <th>DNI</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+        </tr>
+        <tr>
+            <td>{{ empleado.equipo }}</td>
+            <td>{{ empleado.proceso }}</td>
+            <td>{{ empleado.dni }}</td>
+            <td>{{ empleado.nombre }}</td>
+            <td>{{ empleado.apellidos }}</td>
+            <td>{{ empleado.email }}</td>
+            <td>{{ empleado.telefono }}</td>
+            
+
+        </tr>
+    </table>
+
+    {% else %}
+    <p> No existen detalles del equipo</p>
+    {% endif %}
+</div>
 {% endblock %}

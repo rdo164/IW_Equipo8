@@ -1,34 +1,48 @@
 {% extends "base.html" %}
 {% load static %}
 
- 
+{% block title_page %} {% endblock %}
+
 {% block contenido %}
+<div id="content">
 
-    <div id="content">
-        <h2>Listado de procesos</h2>
-        <li><a href="{% url 'add_proceso' %}">Añadir un proceso</a></li>
+    <ul>
+        <li><a href="{% url 'add_proceso' %}"><strong>
+                    <h3>Añadir un proceso</h3>
+                </strong></a></li>
+    </ul>
+    <h2>Listado de Procesos</h2>
+    <ul>
+        <!-- Comprobar si hay equipos -->
         {% if lista_procesos %}
-            <ul>
+        <table>
+            <thead>
+                <tr>
+                    <th>Código Proceso</th>
+                    <th>Nombre</th>
+                    <th>Equipo Asociado</th>
+                    <th>-----------</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Recorrer equipos -->
                 {% for proceso in lista_procesos %}
-                    <li>      
-                        <a href="/appdeustutub/proceso/{{ proceso.id }}">{{ proceso.nombreProceso }}</a>
-                        <a href="{% url 'borrar_proceso' proceso.id %}"></a>
-                        <a href="{% url 'modificar_proceso' proceso.id %}"></a>
-                    </li>
-                {% empty %}
-            <li>No hay procesos disponibles.</li>
+                <tr>
+                    <!-- Mostrar marca y modelo del equipo -->
+                    <td>{{ proceso.codigoProceso }}</td>
+                    <td>{{ proceso.nombreProceso }}</td>
+                    <td>{{ proceso.equipo }}</td>
+                    <td>
+                        <ul>
+                           <li><a href="{% url 'detail_proceso' proceso.id %}"><strong>Detalles</strong></a></li> 
+                        </ul>
+                    </td>
+                </tr>
                 {% endfor %}
-            </ul>
+            </tbody>
+        </table>
         {% else %}
-            <p>No hay procesos creados.</p>
+        <p>No existen procesos</p>
         {% endif %}
-    </div>
+</div>
 {% endblock %}
-
-
-
-
-
-
-
-
