@@ -1,10 +1,8 @@
-{% extends "base.html" %}
-
+{% extends "base_form.html" %}
 {% load static %}
 
 {% block contenido %}
-<div id="content">
-
+<div id="content-add">
     <h1>Añadir equipo</h1>
     <form id="formulario" method="POST">
         {% csrf_token %}

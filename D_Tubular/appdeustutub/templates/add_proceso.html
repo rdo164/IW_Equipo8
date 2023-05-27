@@ -1,18 +1,14 @@
-{% extends "base.html" %}
+{% extends "base_form.html" %}
 {% load static %}
 
 {% block contenido %}
-    <div id="content">
-
-        <div id="add_proceso">
-
-            <h1>Añadir proceso</h1>
-            <form id="formulario" method="POST">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" value="Guardar">
-            </form>
-        </div>
-    </div>
+<div id="content-add">
+    <h1>Añadir proceso</h1>
+    <form id="formulario" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Guardar">
+    </form>
+</div>
 
 {% endblock %}
