@@ -107,18 +107,19 @@ form {
   margin: 0 auto;
   padding: 20px;
   background-color: #ffffff;
-  min-height: 80vh;
-  color: #192666;
+  min-height: 70vh;
 }
-#content-add *
-{
-  color: #192666;
 
+/* todo el contenido tenga el mismo color */
+#content-add * {
+  color: #192666;
 }
+
 label {
   font-weight: bold;
   margin: 8px;
 }
+
 /* botón de guardar */
 #content-add input[type="submit"] {
   display: block;
@@ -152,23 +153,84 @@ header #logo a {
   color: white;
 }
 
-.EnlacesFooter a:hover {
-  color: black;
+footer {
+  display: block;
+  background: #233C9B;
+  padding: 15px;
+  color: white;
 }
 
+.footer-superior {
+  display: flex;
+}
+
+/* color de nav web */
+#contenido-web a {
+  color: blue;
+}
+
+
+.button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  box-shadow: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.button .icon {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.EnlacesFooter a:hover {
+  color: rgb(3, 253, 253);
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#footer-inferior {
+  display: flex;
+  flex-direction: initial;
+  padding-top: 5px;
+  justify-content: space-evenly;
+
+}
+
+#footer-inferior p {
+  padding: 10px;
+  text-align: center;
+  border-top: 2px solid rgb(253, 253, 253);
+  border-color: rgb(253, 253, 253);
+}
+
+
+/* 
 .footer {
   padding-top: 5px;
   padding-bottom: 25px;
   text-align: center;
   background: #233C9B;
-}
+} */
 
 footer a {
-  color: white;
-  padding: 50px;
+  color: rgb(255, 255, 255);
+  padding: 10px;
   padding-bottom: 0;
 }
-
+footer p {
+  text-align: center;
+padding: 15px;
+}
 /* Estilos para las tablas */
 
 table {
