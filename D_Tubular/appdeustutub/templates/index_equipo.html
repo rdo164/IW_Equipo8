@@ -31,7 +31,10 @@
                     <!-- Mostrar marca y modelo del equipo -->
                     <td>{{ equipo.marca }}</td>
                     <td>{{ equipo.modelo }}</td>
-                    <td>{{ proceso.equipo }}</td>
+                    <td>
+                        {{ equipo.categoria.nombre }}
+
+                    </td>
                     <td>
                         <ul>
                             <li><a href="{% url 'detail_equipo' equipo.id %}"><strong>Detalles</strong></a></li>

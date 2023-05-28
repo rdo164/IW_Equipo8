@@ -17,15 +17,15 @@ class Equipo(models.Model):
     
     def __str__(self):
         return self.marca
-    
+        
 class Proceso(models.Model):
     equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE)
-    codOrdenFabricacion = models.IntegerField(default=0)
-    codigoProceso = models.IntegerField(default=0)
-    nombreProceso = models.CharField(max_length=100)
-    referencia = models.CharField(max_length=100)
-    fechaInicio = models.DateField()
-    fechaFin = models.DateField()
+    codOrdenFabricacion = models.IntegerField(default=0, verbose_name='Código de Fabricación')
+    codigoProceso = models.IntegerField(default=0, verbose_name='Código de Proceso')
+    nombreProceso = models.CharField(max_length=100, verbose_name='Nombre del Proceso')
+    referencia = models.CharField(max_length=100, verbose_name='Código de Fabricación')
+    fechaInicio = models.DateField(verbose_name='Fecha de Inicio')
+    fechaFin = models.DateField(verbose_name='Fecha de finalización')
 
     def __str__(self):
         return self.nombreProceso
