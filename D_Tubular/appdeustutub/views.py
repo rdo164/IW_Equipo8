@@ -67,6 +67,7 @@ def add_empleado(request):
         if form.is_valid():
             empleado = form.save()
             return redirect('index_empleado')
+        
     else:
         form = EmpleadoForm()
     return render(request, 'add_empleado.html', {'form': form})

@@ -10,6 +10,11 @@ h2 {
   text-align: center;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
 a {
   text-decoration: none;
@@ -53,8 +58,7 @@ li:hover {
 @media (max-width: 768px) {
   li {
     width: 100%;
-  } 
-  
+  }
 }
 
 /* Estilos específicos para las listas */
@@ -89,6 +93,7 @@ li:hover {
 
 
 form {
+  display: block;
   box-shadow: 0px 0px 5px 0px rgb(192, 192, 192);
   border-radius: 0.5rem;
   padding: 20px;
@@ -115,7 +120,18 @@ label {
   font-weight: bold;
   margin: 8px;
 }
-
+#btn {
+  display: block;
+  font-size: 20px;
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #416fbd;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 /* botón de guardar */
 #content-add input[type="submit"] {
   display: block;
@@ -130,7 +146,7 @@ label {
   cursor: pointer;
 }
 
-#content-add input[type="submit"]:hover {
+#btn[type="submit"]:hover {
   background-color: rgb(0, 30, 255);
 }
 
@@ -250,4 +266,11 @@ ul {
 
 ul li {
   margin-bottom: 5px;
+}
+.error {
+  font-size: 14.5px;
+  margin-top: 5px;
+}
+.error {
+  color: red;
 }

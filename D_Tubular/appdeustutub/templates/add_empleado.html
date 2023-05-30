@@ -8,7 +8,9 @@
     <form class="formulario" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <input onclick="verificarCorreo()" type="submit" value="Guardar">
+        <div class="error"></div>
+
+        <button id="btn" type="submit">Guardar</button>
     </form>
 </div>
 <!-- <button onclick="verificarCorreo()">Click me!</button> -->
