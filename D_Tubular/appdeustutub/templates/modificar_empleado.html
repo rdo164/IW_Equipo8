@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block contenido %}
+<div id="content">
+    <h1>Modificar empleado</h1>
+    <form id="formulario" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar cambios</button>
+    </form>
+</div>
+{% endblock %}

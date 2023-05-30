@@ -32,8 +32,16 @@
                     <!-- Mostrar marca y modelo del equipo -->
                     <td>{{ empleado.nombre }}</td>
                     <td>{{ empleado.dni }}</td>
-                    <td>{{ empleado.equipo }}</td>
-                    <td>{{ empleado.proceso }}</td>
+                    <td>
+                        <ul>
+                            <li><a href="{% url 'detail_equipo' empleado.equipo.id %}"><strong>{{ empleado.equipo }}</strong></a></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li><a href="{% url 'detail_proceso' empleado.proceso.id %}"><strong>{{ empleado.proceso }}</strong></a></li>
+                        </ul>
+                    </td>
                     <td>
                         <ul>
                             <li><a href="{% url 'detail_empleado' empleado.id %}"><strong>Detalles</strong></a></li>

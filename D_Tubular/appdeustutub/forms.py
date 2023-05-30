@@ -24,3 +24,12 @@ class ProcesoForm(forms.ModelForm):
             'fechaInicio': forms.DateInput(attrs={'type': 'date'}),
             'fechaFin': forms.DateInput(attrs={'type': 'date'})
         }
+        labels = {
+            'equipo': 'Equipo',
+            'codOrdenFabricacion': 'Código de Orden de Fabricación',
+            'codigoProceso': 'Código de Proceso',
+            'nombreProceso': 'Nombre de Proceso',
+            'referencia': 'Referencia',
+            'fechaInicio': 'Fecha de Inicio',
+            'fechaFin': 'Fecha de Fin',
+        }

@@ -11,13 +11,11 @@ from django.urls import reverse_lazy
 
 # índice de la página
 def index(request):
-    # context = {'title_page': 'Seleccione una opción:'}
     return render(request, 'index.html')
 
 # muestra todos los equipos
 def index_equipo(request):
 	equipos = Equipo.objects.order_by('marca')    
-    #                          titulo de index_equipo
 	context = { 'lista_equipos': equipos}
 	return render(request, 'index_equipo.html', context)
 
@@ -27,7 +25,6 @@ def show_equipo(request, equipo_id):
     empleados = Empleado.objects.order_by('proceso')
                           
     equipo = get_object_or_404(Equipo, pk=equipo_id)
-    #                               Título de la página
     context = {'equipo': equipo, 'lista_empleados': empleados}
     return render(request, 'detail_equipo.html', context)
 
@@ -39,11 +36,9 @@ def index_proceso(request):
 
 # devuelve los detalles del proceso solicitado
 def show_proceso(request, proceso_id):
-    # para poder mostrar los empleados asociados al proceso 
     empleados = Empleado.objects.order_by('proceso')
     proceso = get_object_or_404(Proceso, pk=proceso_id)
     context = {'proceso': proceso, 'lista_empleados': empleados}
-    #                                               si devuelves más de un context se reformate todo.
     return render (request, 'detail_proceso.html', context)
 
 # devuelve los empleados
@@ -107,6 +102,13 @@ def borrar_equipo(request, equipo_id):
         return redirect('index_equipo')
     return render(request, 'confirmar_borrar_equipo.html', {'equipo': equipo})
 
+def borrar_empleado(request, empleado_id):
+    empleado = get_object_or_404(Empleado, id=empleado_id)
+    if request.method == 'POST':
+        empleado.delete()
+        return redirect('index_empleado')
+    return render(request, 'confirmar_borrar_empleado.html', {'empleado': empleado})
+
 # Modificar creaciones anteriores:
 
 def modificar_equipo(request, equipo_id):
@@ -130,6 +132,17 @@ def modificar_proceso(request, proceso_id):
     else:
         form = ProcesoForm(instance=proceso)
     return render(request, 'modificar_proceso.html', {'form': form})
+
+def modificar_empleado(request, empleado_id):
+    empleado = get_object_or_404(Empleado, pk=empleado_id)
+    if request.method == 'POST':
+        form = EmpleadoForm(request.POST, instance=empleado)
+        if form.is_valid():
+            form.save()
+            return redirect('detail_empleado', empleado_id=empleado_id)
+    else:
+        form = EmpleadoForm(instance=empleado)
+    return render(request, 'modificar_empleado.html', {'form': form})
 
 
      

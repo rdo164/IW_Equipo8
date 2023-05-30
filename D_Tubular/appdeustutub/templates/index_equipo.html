@@ -31,7 +31,13 @@
                     <!-- Mostrar marca y modelo del equipo -->
                     <td>{{ equipo.marca }}</td>
                     <td>{{ equipo.modelo }}</td>
-                    <td>{{ proceso.equipo }}</td>
+                    <td>
+                        <ul>
+                            {% for proceso in equipo.proceso_set.all %}
+                            <li><a href="{% url 'detail_proceso' proceso.id %}"><strong>{{ proceso }}</strong></a></li>
+                            {% endfor %}
+                        </ul>
+                    </td>
                     <td>
                         <ul>
                             <li><a href="{% url 'detail_equipo' equipo.id %}"><strong>Detalles</strong></a></li>

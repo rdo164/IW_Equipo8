@@ -16,6 +16,8 @@
             <th>Apellidos</th>
             <th>Email</th>
             <th>Teléfono</th>
+            <th>------------</th>
+            <th>------------</th>
         </tr>
         <tr>
             <td>{{ empleado.equipo }}</td>
@@ -25,13 +27,23 @@
             <td>{{ empleado.apellidos }}</td>
             <td>{{ empleado.email }}</td>
             <td>{{ empleado.telefono }}</td>
+            <td>
+                <ul>
+                    <li><a href="{% url 'borrar_empleado' empleado.id %}"><strong>Borrar empleado</strong></a></li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li><a href="{% url 'modificar_empleado' empleado.id %}"><strong>Modificar empleado</strong></a></li>
+                </ul>
+            </td>
             
 
         </tr>
     </table>
 
     {% else %}
-    <p> No existen detalles del equipo</p>
+    <p> No existen detalles del empleado</p>
     {% endif %}
 </div>
 {% endblock %}

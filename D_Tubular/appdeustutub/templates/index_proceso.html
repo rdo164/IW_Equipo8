@@ -31,10 +31,14 @@
                     <!-- Mostrar marca y modelo del equipo -->
                     <td>{{ proceso.codigoProceso }}</td>
                     <td>{{ proceso.nombreProceso }}</td>
-                    <td>{{ proceso.equipo }}</td>
                     <td>
                         <ul>
-                           <li><a href="{% url 'detail_proceso' proceso.id %}"><strong>Detalles</strong></a></li> 
+                            <li><a href="{% url 'detail_equipo' proceso.equipo.id %}"><strong>{{ proceso.equipo }}</strong></a></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li><a href="{% url 'detail_proceso' proceso.id %}"><strong>Detalles</strong></a></li>
                         </ul>
                     </td>
                 </tr>
