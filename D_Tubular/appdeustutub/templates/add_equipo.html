@@ -7,7 +7,9 @@
     <form id="formulario" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
+
         <input type="submit" value="Guardar">
+        <script defer src="../../static/JS/botón.js "></script>
     </form>
 </div>
 {% endblock %}

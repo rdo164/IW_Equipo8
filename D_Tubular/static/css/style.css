@@ -10,11 +10,6 @@ h2 {
   text-align: center;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
 
 a {
   text-decoration: none;
@@ -58,7 +53,8 @@ li:hover {
 @media (max-width: 768px) {
   li {
     width: 100%;
-  }
+  } 
+  
 }
 
 /* Estilos específicos para las listas */
@@ -212,15 +208,6 @@ main {
   border-top: 2px solid rgb(253, 253, 253);
   border-color: rgb(253, 253, 253);
 }
-
-
-/* 
-.footer {
-  padding-top: 5px;
-  padding-bottom: 25px;
-  text-align: center;
-  background: #233C9B;
-} */
 
 footer a {
   color: rgb(255, 255, 255);
