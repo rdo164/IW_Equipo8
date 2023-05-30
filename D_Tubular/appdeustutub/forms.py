@@ -33,3 +33,8 @@ class ProcesoForm(forms.ModelForm):
             'fechaInicio': 'Fecha de Inicio',
             'fechaFin': 'Fecha de Fin',
         }
+
+class EmailForm(forms.Form):
+    destinatario = forms.EmailField()
+    asunto = forms.CharField(max_length=100)
+    contenido = forms.CharField(widget=forms.Textarea)

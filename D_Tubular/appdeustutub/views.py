@@ -4,8 +4,9 @@ from django.http import HttpResponse
 from .models import Empleado, Equipo, Proceso
 from django.shortcuts import get_object_or_404
 from django import forms
-from .forms import EmpleadoForm, EquipoForm, ProcesoForm
+from .forms import EmpleadoForm, EquipoForm, ProcesoForm, EmailForm
 from django.urls import reverse_lazy
+from .utils import enviar_email
 
 # Create your views here.
 
@@ -144,5 +145,23 @@ def modificar_empleado(request, empleado_id):
         form = EmpleadoForm(instance=empleado)
     return render(request, 'modificar_empleado.html', {'form': form})
 
+# Enviar emails
 
+def enviar_email_view(request):
+    if request.method == 'POST':
+        form = EmailForm(request.POST)
+        if form.is_valid():
+            destinatario = form.cleaned_data['destinatario']
+            asunto = form.cleaned_data['asunto']
+            contenido = form.cleaned_data['contenido']
+            enviar_email(destinatario, asunto, contenido)
+            return redirect('confirmacion_envio')  # Redirige a la página de confirmación
+    else:
+        form = EmailForm()
+    
+    context = {'form': form}
+    return render(request, 'email_form.html', context)
+
+def confirmacion_envio(request):
+    return render(request, 'confirmacion_envio.html')
      

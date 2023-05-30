@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import index, add_empleado, borrar_proceso, borrar_equipo
+from .views import index, add_empleado, borrar_proceso, borrar_equipo, enviar_email
 
 
 urlpatterns =[
@@ -31,4 +31,9 @@ urlpatterns =[
     path('equipo/modificar/<int:equipo_id>/', views.modificar_equipo, name='modificar_equipo'),
     path('proceso/modificar/<int:proceso_id>/', views.modificar_proceso, name='modificar_proceso'),
     path('empleado/modificar/<int:empleado_id>/', views.modificar_empleado, name='modificar_empleado'),
+
+    # funcionalidades adicionales
+    path('enviar-email/', views.enviar_email_view, name='enviar_email'),
+    path('confirmacion/', views.confirmacion_envio, name='confirmacion_envio'),
+
 ]
