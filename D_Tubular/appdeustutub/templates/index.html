@@ -5,13 +5,7 @@
 
 {% block contenido %}
 <div id="content">
-
-    <ul>
-        <li><a href="{% url 'add_equipo' %}"><strong>
-                    <h3>Añadir un equipo</h3>
-                </strong></a></li>
-    </ul>
-    <h2>Listado de Equipos:</h2>
+    <h2>Listado de Equipos</h2>
     <ul>
         <!-- Comprobar si hay equipos -->
         {% if lista_equipos %}
