@@ -33,7 +33,13 @@ urlpatterns =[
     path('empleado/modificar/<int:empleado_id>/', views.modificar_empleado, name='modificar_empleado'),
 
     # funcionalidades adicionales
+    # envio de emails
     path('enviar-email/', views.enviar_email_view, name='enviar_email'),
     path('confirmacion/', views.confirmacion_envio, name='confirmacion_envio'),
 
+    # subir archivos 
+    path('subir-archivo/', views.subir_archivo, name='subir_archivo'),
+    path('mostrar-archivos/', views.mostrar_archivos, name='mostrar_archivos'),
+    path('descargar-archivo/<int:archivo_id>/', views.descargar_archivo, name='descargar_archivo'),
 ]
+

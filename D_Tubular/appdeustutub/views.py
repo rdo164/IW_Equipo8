@@ -1,12 +1,14 @@
 from django.views.generic import DetailView, ListView, DeleteView, UpdateView, CreateView
 from django.shortcuts import render, redirect
+from django.conf import settings
 from django.http import HttpResponse
-from .models import Empleado, Equipo, Proceso
+from .models import Empleado, Equipo, Proceso, Archivo
 from django.shortcuts import get_object_or_404
 from django import forms
-from .forms import EmpleadoForm, EquipoForm, ProcesoForm, EmailForm
+from .forms import EmpleadoForm, EquipoForm, ProcesoForm, EmailForm, ArchivoForm
 from django.urls import reverse_lazy
 from .utils import enviar_email
+import os
 
 # Create your views here.
 
@@ -164,4 +166,29 @@ def enviar_email_view(request):
 
 def confirmacion_envio(request):
     return render(request, 'confirmacion_envio.html')
+
+# Subir archivos con opción de descarga
+
+def subir_archivo(request):
+    if request.method == 'POST':
+        form = ArchivoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('mostrar_archivos')
+    else:
+        form = ArchivoForm()
+    
+    context = {'form': form}
+    return render(request, 'subir_archivo.html', context)
+
+def mostrar_archivos(request):
+    archivos = Archivo.objects.all()
+    context = {'archivos': archivos}
+    return render(request, 'mostrar_archivos.html', context)
+
+def descargar_archivo(request, archivo_id):
+    archivo = Archivo.objects.get(pk=archivo_id)
+    response = HttpResponse(archivo.archivo, content_type='application/octet-stream')
+    response['Content-Disposition'] = f'attachment; filename="{archivo.archivo.name}"'
+    return response
      

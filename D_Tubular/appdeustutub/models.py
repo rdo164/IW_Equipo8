@@ -2,6 +2,12 @@ from django.db import models
 
 # Create your models here.
 
+class Archivo(models.Model):
+    archivo = models.FileField(upload_to='archivos/')
+
+    def __str__(self):
+        return self.archivo.name
+
 class Categoria(models.Model):
     nombre = models.CharField(max_length=50)
 

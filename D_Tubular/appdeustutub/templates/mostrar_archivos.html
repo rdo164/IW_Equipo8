@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block contenido %}
+<div id="content">
+    <div>
+        <h1>Subir Archivo</h1>
+        <ul>
+            <li><a href="{% url 'subir_archivo' %}">Subir un archivo</a></li>
+        </ul>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Archivo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for archivo in archivos %}
+                <tr>
+                    <td>{{ archivo.archivo.name }}</td>
+                    <td>
+                        <a href="{% url 'descargar_archivo' archivo.id %}">Descargar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

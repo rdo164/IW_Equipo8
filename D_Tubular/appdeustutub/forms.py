@@ -1,5 +1,5 @@
 from django import forms
-from .models import Empleado, Equipo, Proceso
+from .models import Empleado, Equipo, Proceso, Archivo
 
 class EmpleadoForm(forms.ModelForm):
     class Meta:
@@ -38,3 +38,9 @@ class EmailForm(forms.Form):
     destinatario = forms.EmailField()
     asunto = forms.CharField(max_length=100)
     contenido = forms.CharField(widget=forms.Textarea)
+
+
+class ArchivoForm(forms.ModelForm):
+    class Meta:
+        model = Archivo
+        fields = ['archivo']

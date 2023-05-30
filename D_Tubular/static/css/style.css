@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h1,
@@ -91,29 +91,39 @@ li:hover {
   cursor: pointer;
 }
 
-
-form {
-  box-shadow: 0px 0px 5px 0px rgb(192, 192, 192);
-  border-radius: 0.5rem;
-  padding: 20px;
-  line-height: 15px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-
 header {
-  background: #233C9B;
-  height: 80px;
-  background-color: #192666;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
+  background-color: #233C9B;
+  color: white;
+  padding: 20px;
+  text-align: center;
 }
 
-header #logo a {
-  background: #192666;
+header h1 {
   margin: 0;
+  font-size: 40px;
   color: white;
+}
+
+header #logo {
+  color: white;
+  font-size: larger;
+  padding-bottom: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-style:italic;
 }
 
 .EnlacesFooter a:hover {
@@ -141,7 +151,8 @@ table {
   margin-bottom: 20px;
 }
 
-th, td {
+th,
+td {
   padding: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd;
@@ -164,4 +175,60 @@ ul {
 
 ul li {
   margin-bottom: 5px;
+}
+
+/* Estilos para los formularios */
+
+/* Contenedor del formulario */
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 5px;
+  background-color: #f4f4f4;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Título del formulario */
+form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Etiquetas de los campos */
+form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #666;
+}
+
+/* Campos de entrada de texto */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Botón de envío del formulario */
+form button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+  background-color: #45a049;
 }
