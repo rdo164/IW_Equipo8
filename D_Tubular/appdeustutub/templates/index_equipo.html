@@ -34,13 +34,13 @@
                     <td>
                         <ul>
                             {% for proceso in equipo.proceso_set.all %}
-                            <li><a href="{% url 'detail_proceso' proceso.id %}"><strong>{{ proceso }}</strong></a></li>
+                            <li><a href="{% url 'proceso-detail' proceso.id %}"><strong>{{ proceso }}</strong></a></li>
                             {% endfor %}
                         </ul>
                     </td>
                     <td>
                         <ul>
-                            <li><a href="{% url 'detail_equipo' equipo.id %}"><strong>Detalles</strong></a></li>
+                            <li><a href="{% url 'equipo-detail' equipo.id %}"><strong>Detalles</strong></a></li>
                         </ul>
                     </td>
                 </tr>
@@ -50,5 +50,7 @@
         {% else %}
         <p>No existen equipos</p>
         {% endif %}
+        
 </div>
+
 {% endblock %}

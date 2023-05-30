@@ -22,7 +22,9 @@
                 <tr>
                     <td>{{ archivo.archivo.name }}</td>
                     <td>
-                        <a href="{% url 'descargar_archivo' archivo.id %}">Descargar</a>
+                        <ul>
+                            <a href="{% url 'descargar_archivo' archivo.id %}">Descargar</a>
+                        </ul>
                     </td>
                 </tr>
                 {% endfor %}

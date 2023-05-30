@@ -1,3 +1,4 @@
+from django.views import View
 from django.views.generic import DetailView, ListView, DeleteView, UpdateView, CreateView
 from django.shortcuts import render, redirect
 from django.conf import settings
@@ -13,49 +14,52 @@ import os
 # Create your views here.
 
 # índice de la página
-def index(request):
-    return render(request, 'index.html')
+class IndexView(View):
+    def get(self, request):
+        return render(request, 'index.html')
 
-# muestra todos los equipos
-def index_equipo(request):
-	equipos = Equipo.objects.order_by('marca')    
-	context = { 'lista_equipos': equipos}
-	return render(request, 'index_equipo.html', context)
+class EquipoListView(ListView):
+    model = Equipo
+    template_name = 'index_equipo.html'
+    context_object_name = 'lista_equipos'
+    ordering = 'marca'
 
-# devuelve los detalles del equipo solicitado
-def show_equipo(request, equipo_id):
-    #                  .     
-    empleados = Empleado.objects.order_by('proceso')
-                          
-    equipo = get_object_or_404(Equipo, pk=equipo_id)
-    context = {'equipo': equipo, 'lista_empleados': empleados}
-    return render(request, 'detail_equipo.html', context)
+class EquipoDetailView(DetailView):
+    model = Equipo
+    template_name = 'detail_equipo.html'
+    context_object_name = 'equipo'
 
-# devuelve los procesos
-def index_proceso(request):
-    procesos = Proceso.objects.order_by('nombreProceso')
-    context = {'lista_procesos': procesos}
-    return render(request, 'index_proceso.html', context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['lista_empleados'] = Empleado.objects.order_by('proceso')
+        return context
 
-# devuelve los detalles del proceso solicitado
-def show_proceso(request, proceso_id):
-    empleados = Empleado.objects.order_by('proceso')
-    proceso = get_object_or_404(Proceso, pk=proceso_id)
-    context = {'proceso': proceso, 'lista_empleados': empleados}
-    return render (request, 'detail_proceso.html', context)
+class ProcesoListView(ListView):
+    model = Proceso
+    template_name = 'index_proceso.html'
+    context_object_name = 'lista_procesos'
+    ordering = 'nombreProceso'
 
-# devuelve los empleados
-def index_empleado(request):
-    empleados = Empleado.objects.order_by('nombre')
-    context = { 'lista_empleados': empleados}
-    return render( request, 'index_empleado.html', context)
+class ProcesoDetailView(DetailView):
+    model = Proceso
+    template_name = 'detail_proceso.html'
+    context_object_name = 'proceso'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['lista_empleados'] = Empleado.objects.order_by('proceso')
+        return context
 
-# devuelve los datos del empleado solicitado
-def show_empleado(request, empleado_id):
-    empleado = get_object_or_404(Empleado, pk=empleado_id)
-    context = { 'empleado': empleado }
-    return render(request, 'detail_empleado.html', context)
+class EmpleadoListView(ListView):
+    model = Empleado
+    template_name = 'index_empleado.html'
+    context_object_name = 'lista_empleados'
+    ordering = 'nombre'
+
+class EmpleadoDetailView(DetailView):
+    model = Empleado
+    template_name = 'detail_empleado.html'
+    context_object_name = 'empleado'
 
 # Métodos para añadir empleados, procesos y equipos:
 

@@ -34,17 +34,17 @@
                     <td>{{ empleado.dni }}</td>
                     <td>
                         <ul>
-                            <li><a href="{% url 'detail_equipo' empleado.equipo.id %}"><strong>{{ empleado.equipo }}</strong></a></li>
+                            <li><a href="{% url 'equipo-detail' empleado.equipo.id %}"><strong>{{ empleado.equipo }}</strong></a></li>
                         </ul>
                     </td>
                     <td>
                         <ul>
-                            <li><a href="{% url 'detail_proceso' empleado.proceso.id %}"><strong>{{ empleado.proceso }}</strong></a></li>
+                            <li><a href="{% url 'proceso-detail' empleado.proceso.id %}"><strong>{{ empleado.proceso }}</strong></a></li>
                         </ul>
                     </td>
                     <td>
                         <ul>
-                            <li><a href="{% url 'detail_empleado' empleado.id %}"><strong>Detalles</strong></a></li>
+                            <li><a href="{% url 'empleado-detail' empleado.id %}"><strong>Detalles</strong></a></li>
                         </ul>
                     </td>
                 </tr>
@@ -55,4 +55,5 @@
         <p>No existen equipos</p>
         {% endif %}
 </div>
+
 {% endblock %}

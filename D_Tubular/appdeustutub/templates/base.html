@@ -15,9 +15,9 @@
             <h1><a id="logo" href="{% url 'index' %}">DEUSTUBULAR S.L.</a></h1>
             <nav>
                 <ul>
-                    <li><a href="{% url 'index_equipo' %}">Equipo</a></li>
-                    <li><a href="{% url 'index_proceso' %}">Procesos</a></li>
-                    <li><a href="{% url 'index_empleado' %}">Empleados</a></li>
+                    <li><a href="{% url 'equipo-list' %}">Equipo</a></li>
+                    <li><a href="{% url 'proceso-list' %}">Procesos</a></li>
+                    <li><a href="{% url 'empleado-list' %}">Empleados</a></li>
                     <li><a href="{% url 'enviar_email' %}">Enviar email</a></li>
                     <li><a href="{% url 'mostrar_archivos' %}">Archivos subidos</a></li>
                 </ul>
@@ -26,6 +26,10 @@
         {% block contenido %} {% endblock %}
 
         <footer class="footer">
+            <div>
+                <button id="disminuirBtn">-</button>
+                <button id="aumentarBtn">+</button>
+            </div>
             <p><a
                     href="mailto:aitor.salazar@rpk.es?Subject=Este%20es%20nuestro%20proyecto%20:">soluciones@empresa.es</a></br>
                 Copyright © Company </p>
@@ -39,14 +43,14 @@
                         alt="YOUTUBE">Youtube</a>
             </div>
 
-            <section class="EnlacesFooter">
+            <div class="EnlacesFooter">
                 <a href="https://policies.google.com/privacy?hl=es">Política de privacidad</a>
                 <a href="https://www.google.com/intl/es_ALL/help/attribution_maps/">Aviso legal</a>
                 <a href="https://support.google.com/chrome/answer/9564">Cookies</a>
-            </section>
+            </div>
 
         </footer>
-
+        <script src="{% static 'js/custom.js' %}"></script>
     </body>
 
 </html>

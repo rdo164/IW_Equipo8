@@ -33,12 +33,12 @@
                     <td>{{ proceso.nombreProceso }}</td>
                     <td>
                         <ul>
-                            <li><a href="{% url 'detail_equipo' proceso.equipo.id %}"><strong>{{ proceso.equipo }}</strong></a></li>
+                            <li><a href="{% url 'equipo-detail' proceso.equipo.id %}"><strong>{{ proceso.equipo}}</strong></a></li>
                         </ul>
                     </td>
                     <td>
                         <ul>
-                            <li><a href="{% url 'detail_proceso' proceso.id %}"><strong>Detalles</strong></a></li>
+                            <li><a href="{% url 'proceso-detail' proceso.id %}"><strong>Detalles</strong></a></li>
                         </ul>
                     </td>
                 </tr>
@@ -49,4 +49,5 @@
         <p>No existen procesos</p>
         {% endif %}
 </div>
+
 {% endblock %}

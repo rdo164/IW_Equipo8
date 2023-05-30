@@ -28,7 +28,7 @@
             <td>{{ proceso.fechaFin }}</td>
             <td>
                 <ul>
-                    <li><a href="{% url 'index_empleado' %}"><strong>Lista de Empleados</strong></a></li>
+                    <li><a href="{% url 'empleado-list' %}"><strong>Lista de Empleados</strong></a></li>
                 </ul>
             </td>
             <td>
@@ -48,4 +48,5 @@
     <p> No existe este proceso.</p>
     {% endif %}
 </div>
+
 {% endblock %}

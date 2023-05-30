@@ -1,21 +1,20 @@
 from django.urls import path
+from django.views.generic import TemplateView
 from . import views
-from .views import index, add_empleado, borrar_proceso, borrar_equipo, enviar_email
+from .views import ProcesoDetailView, EmpleadoListView, EmpleadoDetailView, add_empleado, borrar_proceso, borrar_equipo, enviar_email, EquipoListView, EquipoDetailView, ProcesoListView
 
 
 urlpatterns =[
     # índice principal
-    path('', views.index, name='index'),
+    path('', TemplateView.as_view(template_name='index.html'), name='index'),
 
     # indices de los modelos
-    path('equipos/', views.index_equipo, name='index_equipo'),
-    path('procesos/', views.index_proceso, name='index_proceso'),
-    path('empleados/', views.index_empleado, name='index_empleado'),
-
-    # detail
-    path('equipo/<int:equipo_id>/', views.show_equipo, name='detail_equipo'),
-    path('proceso/<int:proceso_id>/',views.show_proceso, name='detail_proceso'),
-    path('empleado/<int:empleado_id>/', views.show_empleado, name='detail_empleado'),
+    path('equipos/', EquipoListView.as_view(), name='equipo-list'),
+    path('equipos/<int:pk>/', EquipoDetailView.as_view(), name='equipo-detail'),
+    path('procesos/', ProcesoListView.as_view(), name='proceso-list'),
+    path('procesos/<int:pk>/', ProcesoDetailView.as_view(), name='proceso-detail'),
+    path('empleados/', EmpleadoListView.as_view(), name='empleado-list'),
+    path('empleados/<int:pk>/', EmpleadoDetailView.as_view(), name='empleado-detail'),
 
     # añadir
     path('add_empleado/', views.add_empleado, name='add_empleado'),

@@ -139,7 +139,6 @@ nav a {
 
 footer a {
   color: white;
-  padding: 50px;
   padding-bottom: 0;
 }
 
@@ -231,4 +230,17 @@ form button[type="submit"] {
 
 form button[type="submit"]:hover {
   background-color: #45a049;
+}
+
+button {
+  background-color: #4f3ee7;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }

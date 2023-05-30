@@ -26,7 +26,7 @@
             <td>{{ equipo.fecha_instalacion }}</td>
             <td>
                 <ul>
-                    <li><a href="{% url 'index_empleado' %}"><strong>Lista de Empleados</strong></a></li>
+                    <li><a href="{% url 'empleado-list' %}"><strong>Lista de Empleados</strong></a></li>
                 </ul>
             </td>
             <td>
@@ -47,4 +47,5 @@
     <p> No existen detalles del equipo</p>
     {% endif %}
 </div>
+
 {% endblock %}
