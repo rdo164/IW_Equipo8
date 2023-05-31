@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block contenido %}
+<div id="content">
+    <h2>Borrar Archivo</h2>
+    <p>¿Estás seguro de que deseas eliminar el archivo "{{ archivo.archivo.name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar</button>
+        <ul>
+            <li><a href="{% url 'mostrar_archivos' %}">Cancelar</a></li>
+        </ul>
+    </form>
+</div>
+
+{% endblock %}

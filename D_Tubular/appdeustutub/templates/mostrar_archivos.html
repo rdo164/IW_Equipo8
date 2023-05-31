@@ -10,6 +10,7 @@
         </ul>
     </div>
     <div>
+        {% if mostrar_archivos %}
         <table>
             <thead>
                 <tr>
@@ -23,13 +24,21 @@
                     <td>{{ archivo.archivo.name }}</td>
                     <td>
                         <ul>
-                            <a href="{% url 'descargar_archivo' archivo.id %}">Descargar</a>
+                            <li><a href="{% url 'descargar_archivo' archivo.id %}">Descargar</a></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li><a href="{% url 'borrar_archivo' archivo.id %}">Borrar</a></li>
                         </ul>
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
+        {% else %}
+        <p>No existen archivos</p>
+        {% endif %}
     </div>
 </div>
 

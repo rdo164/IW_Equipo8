@@ -68,7 +68,7 @@ def add_empleado(request):
         form = EmpleadoForm(request.POST)
         if form.is_valid():
             empleado = form.save()
-            return redirect('index_empleado')
+            return redirect('empleado-list')
     else:
         form = EmpleadoForm()
     return render(request, 'add_empleado.html', {'form': form})
@@ -78,7 +78,7 @@ def add_equipo(request):
         form = EquipoForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index_equipo')
+            return redirect('equipo-list')
     else:
         form = EquipoForm()
     return render(request, 'add_equipo.html', {'form': form})
@@ -88,7 +88,7 @@ def add_proceso(request):
         form = ProcesoForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index_proceso')
+            return redirect('proceso-list')
     else:
         form = ProcesoForm()
     return render(request, 'add_proceso.html', {'form': form})
@@ -99,21 +99,21 @@ def borrar_proceso(request, proceso_id):
     proceso = get_object_or_404(Proceso, id=proceso_id)
     if request.method == 'POST':
         proceso.delete()
-        return redirect('index_proceso')
+        return redirect('proceso-list')
     return render(request, 'confirmar_borrar_proceso.html', {'proceso': proceso})
 
 def borrar_equipo(request, equipo_id):
     equipo = get_object_or_404(Equipo, id=equipo_id)
     if request.method == 'POST':
         equipo.delete()
-        return redirect('index_equipo')
+        return redirect('equipo-list')
     return render(request, 'confirmar_borrar_equipo.html', {'equipo': equipo})
 
 def borrar_empleado(request, empleado_id):
     empleado = get_object_or_404(Empleado, id=empleado_id)
     if request.method == 'POST':
         empleado.delete()
-        return redirect('index_empleado')
+        return redirect('empleado-list')
     return render(request, 'confirmar_borrar_empleado.html', {'empleado': empleado})
 
 # Modificar creaciones anteriores:
@@ -124,7 +124,7 @@ def modificar_equipo(request, equipo_id):
         form = EquipoForm(request.POST, instance=equipo)
         if form.is_valid():
             form.save()
-            return redirect('detail_equipo', equipo_id=equipo_id)
+            return redirect('equipo-detail', pk=equipo_id)
     else:
         form = EquipoForm(instance=equipo)
     return render(request, 'modificar_equipo.html', {'form': form})
@@ -135,7 +135,7 @@ def modificar_proceso(request, proceso_id):
         form = ProcesoForm(request.POST, instance=proceso)
         if form.is_valid():
             form.save()
-            return redirect('detail_proceso', proceso_id=proceso_id)
+            return redirect('proceso-detail', pk=proceso_id)
     else:
         form = ProcesoForm(instance=proceso)
     return render(request, 'modificar_proceso.html', {'form': form})
@@ -146,7 +146,7 @@ def modificar_empleado(request, empleado_id):
         form = EmpleadoForm(request.POST, instance=empleado)
         if form.is_valid():
             form.save()
-            return redirect('detail_empleado', empleado_id=empleado_id)
+            return redirect('empleado-detail', pk=empleado_id)
     else:
         form = EmpleadoForm(instance=empleado)
     return render(request, 'modificar_empleado.html', {'form': form})
@@ -195,4 +195,14 @@ def descargar_archivo(request, archivo_id):
     response = HttpResponse(archivo.archivo, content_type='application/octet-stream')
     response['Content-Disposition'] = f'attachment; filename="{archivo.archivo.name}"'
     return response
+
+def borrar_archivo(request, archivo_id):
+    archivo = get_object_or_404(Archivo, pk=archivo_id)
+    
+    if request.method == 'POST':
+        archivo.delete()
+        return redirect('mostrar_archivos')
+    
+    context = {'archivo': archivo}
+    return render(request, 'borrar_archivo.html', context)
      
