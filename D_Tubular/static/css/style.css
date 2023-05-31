@@ -126,22 +126,6 @@ nav a {
   font-style:italic;
 }
 
-.EnlacesFooter a:hover {
-  color: black;
-}
-
-.footer {
-  padding-top: 5px;
-  padding-bottom: 25px;
-  text-align: center;
-  background: #233C9B;
-}
-
-footer a {
-  color: white;
-  padding-bottom: 0;
-}
-
 /* Estilos para las tablas */
 
 table {
@@ -243,4 +227,46 @@ button {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+/* Footer */
+
+footer {
+  display: block;
+  background: #233C9B;
+  padding: 15px;
+  color: white;
+}
+
+.footer-superior {
+  display: flex;
+}
+
+.EnlacesFooter a:hover {
+  color: rgb(3, 253, 253);
+}
+
+#footer-inferior {
+  display: flex;
+  flex-direction: initial;
+  padding-top: 5px;
+  justify-content: space-evenly;
+
+}
+
+#footer-inferior p {
+  padding: 10px;
+  text-align: center;
+  border-top: 2px solid rgb(253, 253, 253);
+  border-color: rgb(253, 253, 253);
+}
+
+footer a {
+  color: black;
+  padding: 10px;
+  padding-bottom: 0;
+}
+footer p {
+  text-align: center;
+padding: 15px;
 }

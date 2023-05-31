@@ -25,30 +25,68 @@
         </header>
         {% block contenido %} {% endblock %}
 
-        <footer class="footer">
-            <div>
-                <button id="disminuirBtn">-</button>
-                <button id="aumentarBtn">+</button>
-            </div>
-            <p><a
-                    href="mailto:aitor.salazar@rpk.es?Subject=Este%20es%20nuestro%20proyecto%20:">soluciones@empresa.es</a></br>
-                Copyright © Company </p>
+        <footer id="footer">
 
-            <div class="RedesSociales">
-                <a href="https://www.facebook.com"> <img src="../../static/images/facebook-logo-png-9.png" height="20"
-                        alt="FACEBOOK">Facebook</a>
-                <a href="https://twitter.com"><img src="../../static/images/gorjeo_318-674515.jpg" height="20"
-                        alt="TWITTER"> Twitter</a>
-                <a href="https://www.youtube.com/"><img src="../../static/images/youtube-logo-hd-8.png" height="30"
-                        alt="YOUTUBE">Youtube</a>
-            </div>
+            <section class="footer-superior">
 
-            <div class="EnlacesFooter">
+                <div class="RedesSociales">
+                    <!-- <header> -->
+                    <h2>
+                        Redes Sociales
+                    </h2>
+                    <!-- </header> -->
+                    <main>
+
+                        <div class="boton-Facebook">
+                            <a href="https://www.facebook.com">
+                                <img src="../../static/images/facebook-logo-png-9.png" height="60" alt="FACEBOOK">
+                            </a>
+                        </div>
+                        <div class="boton-Twitter">
+
+                            <a href="https://twitter.com"><img src="../../static/images/insta.png" height="60"
+                                    alt="TWITTER">
+                            </a>
+                        </div>
+                        <div class="boton-Youtube">
+                            <a href="https://www.youtube.com/"><img src="../../static/images/youtube-logo-hd-8.png"
+                                    height="60" alt="YOUTUBE"></a>
+                        </div>
+                    </main>
+                </div>
+
+                <nav id="contenido-web">
+                    <h2>
+                        Contenido-web
+                    </h2>
+                    <ul id="Contenido-web">
+                        <li>
+                            <a href="./index.html">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="index_proceso.html">Proceso</a>
+                        </li>
+                        <li>
+                            <a href="index_empleado.html">Empleados</a>
+                        </li>
+                        <li>
+                            <a href="index_equipo.html">Equipos</a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+
+            <nav id="footer-inferior">
                 <a href="https://policies.google.com/privacy?hl=es">Política de privacidad</a>
                 <a href="https://www.google.com/intl/es_ALL/help/attribution_maps/">Aviso legal</a>
                 <a href="https://support.google.com/chrome/answer/9564">Cookies</a>
-            </div>
 
+
+            </nav>
+            <p><a
+                    href="mailto:aitor.salazar@rpk.es?Subject=Este%20es%20nuestro%20proyecto%20:">soluciones@Deustubular.es</a></br>
+                Copyright © Company </p>
+                
         </footer>
         <script src="{% static 'js/custom.js' %}"></script>
     </body>
