@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% load static %}
 
 {% block contenido %}
@@ -9,7 +8,10 @@
     <form id="formulario" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Guardar">
+
+        <button type="submit">Guardar</button>
+
     </form>
+
 </div>
 {% endblock %}

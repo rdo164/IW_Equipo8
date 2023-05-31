@@ -123,7 +123,7 @@ nav li {
 nav a {
   text-decoration: none;
   color: black;
-  font-style:italic;
+  font-style: italic;
 }
 
 /* Estilos para las tablas */
@@ -164,7 +164,8 @@ ul li {
 
 /* Contenedor del formulario */
 form {
-  max-width: 500px;
+  display: block;
+  max-width: 600px;
   margin: 0 auto;
   padding: 40px;
   border-radius: 5px;
@@ -172,11 +173,27 @@ form {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* formularios de añadir */
+/* #content-add {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  min-height: 70vh;
+} */
 /* Título del formulario */
 form h2 {
   text-align: center;
   margin-bottom: 20px;
   color: #333;
+}
+
+#add-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  min-height: 70vh;
 }
 
 /* Etiquetas de los campos */
@@ -188,10 +205,15 @@ form label {
 }
 
 /* Campos de entrada de texto */
+form select,
+form input[type="number"],
 form input[type="text"],
 form input[type="email"],
 form input[type="password"],
 form textarea {
+  display: block;
+  grid-template-columns: auto;
+  align-items: baseline;
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
@@ -201,32 +223,26 @@ form textarea {
   color: #333;
 }
 
+form p {
+  display: grid;
+}
+
 /* Botón de envío del formulario */
 form button[type="submit"] {
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: #fff;
+  display: block;
+  font-size: 20px;
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #416fbd;
+  color: #ffffff;
   border: none;
   border-radius: 4px;
-  font-size: 16px;
   cursor: pointer;
 }
 
 form button[type="submit"]:hover {
   background-color: #45a049;
-}
-
-button {
-  background-color: #4f3ee7;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
 }
 
 /* Footer */
@@ -240,6 +256,7 @@ footer {
 
 .footer-superior {
   display: flex;
+  justify-content: space-around;
 }
 
 .EnlacesFooter a:hover {
@@ -266,7 +283,14 @@ footer a {
   padding: 10px;
   padding-bottom: 0;
 }
+
 footer p {
   text-align: center;
-padding: 15px;
+  padding: 15px;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

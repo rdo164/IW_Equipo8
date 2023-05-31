@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-    <!-- base de los archivos html -->
+<!-- base de los archivos html -->
 
-    <head>
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <!-- favicon !!!!!!!!!!!!!!!!!!!!!!!!! -->
-        <!-- No aparece en el  titulo -->
-        <title>App Deustubular</title>
-    </head>
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- favicon !!!!!!!!!!!!!!!!!!!!!!!!! -->
+    <!-- No aparece en el  titulo -->
+    <title>App Deustubular</title>
+</head>
 
-    <body>
-        <header>
-            <h1><a id="logo" href="{% url 'index' %}">DEUSTUBULAR S.L.</a></h1>
-            <nav>
-                <ul>
-                    <li><a href="{% url 'equipo-list' %}">Equipo</a></li>
-                    <li><a href="{% url 'proceso-list' %}">Procesos</a></li>
-                    <li><a href="{% url 'empleado-list' %}">Empleados</a></li>
-                    <li><a href="{% url 'enviar_email' %}">Enviar email</a></li>
-                    <li><a href="{% url 'mostrar_archivos' %}">Archivos subidos</a></li>
-                </ul>
-            </nav>
-        </header>
-        {% block contenido %} {% endblock %}
+<body>
+    <header>
+        <h1><a id="logo" href="{% url 'index' %}">DEUSTUBULAR S.L.</a></h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'equipo-list' %}">Equipo</a></li>
+                <li><a href="{% url 'proceso-list' %}">Procesos</a></li>
+                <li><a href="{% url 'empleado-list' %}">Empleados</a></li>
+                <li><a href="{% url 'enviar_email' %}">Enviar email</a></li>
+                <li><a href="{% url 'mostrar_archivos' %}">Archivos subidos</a></li>
+            </ul>
+        </nav>
+    </header>
+    {% block contenido %} {% endblock %}
 
-        <footer id="footer">
+    <footer id="footer">
+
+        <main>
 
             <section class="footer-superior">
 
@@ -74,21 +76,24 @@
                         </li>
                     </ul>
                 </nav>
+
             </section>
-
-            <nav id="footer-inferior">
-                <a href="https://policies.google.com/privacy?hl=es">Política de privacidad</a>
-                <a href="https://www.google.com/intl/es_ALL/help/attribution_maps/">Aviso legal</a>
-                <a href="https://support.google.com/chrome/answer/9564">Cookies</a>
+        </main>
 
 
-            </nav>
-            <p><a
-                    href="mailto:aitor.salazar@rpk.es?Subject=Este%20es%20nuestro%20proyecto%20:">soluciones@Deustubular.es</a></br>
-                Copyright © Company </p>
-                
-        </footer>
-        <script src="{% static 'js/custom.js' %}"></script>
-    </body>
+        <nav id="footer-inferior">
+            <a href="https://policies.google.com/privacy?hl=es">Política de privacidad</a>
+            <a href="https://www.google.com/intl/es_ALL/help/attribution_maps/">Aviso legal</a>
+            <a href="https://support.google.com/chrome/answer/9564">Cookies</a>
+
+
+        </nav>
+        <p><a
+                href="mailto:aitor.salazar@rpk.es?Subject=Este%20es%20nuestro%20proyecto%20:">soluciones@Deustubular.es</a></br>
+            Copyright © Company
+        </p>
+    </footer>
+    <script src="{% static 'js/custom.js' %}"></script>
+</body>
 
 </html>

@@ -3,13 +3,13 @@
 
 {% block contenido %}
 
-    <div id="content">
-        <h1>Añadir empleado</h1>
-        <form id="formulario" method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Guardar">
-        </form>
-    </div>
-    
-    {% endblock %}
+<div id="add-content">
+    <h1>Añadir empleado</h1>
+    <form id="formulario" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button id="btn" type="submit">Guardar</button>
+    </form>
+</div>
+
+{% endblock %}
