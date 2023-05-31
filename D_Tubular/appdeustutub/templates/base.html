@@ -5,7 +5,7 @@
 
     <head>
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <!-- favicon !!!!!!!!!!!!!!!!!!!!!!!!! -->
+        <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
         <!-- No aparece en el  titulo -->
         <title>App Deustubular</title>
     </head>
@@ -24,10 +24,9 @@
             </nav>
         </header>
         {% block contenido %} {% endblock %}
-
+        <button id="disminuirBtn">-</button>
+        <button id="aumentarBtn">+</button>
         <footer id="footer">
-            <button id="disminuirBtn">-</button>
-            <button id="aumentarBtn">+</button>
 
             <main>
 

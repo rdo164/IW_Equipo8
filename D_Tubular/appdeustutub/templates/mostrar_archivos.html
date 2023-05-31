@@ -9,13 +9,14 @@
             <li><a href="{% url 'subir_archivo' %}">Subir un archivo</a></li>
         </ul>
     </div>
+    <br>
     <div>
-        {% if mostrar_archivos %}
         <table>
             <thead>
                 <tr>
                     <th>Archivo</th>
-                    <th>Acciones</th>
+                    <th>-------</th>
+                    <th>-------</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,9 +37,6 @@
                 {% endfor %}
             </tbody>
         </table>
-        {% else %}
-        <p>No existen archivos</p>
-        {% endif %}
     </div>
 </div>
 
