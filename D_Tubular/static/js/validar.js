@@ -9,7 +9,8 @@ document.getElementById('formulario').addEventListener('submit', function(event)
     var dniRegex = /^\d{8}[a-zA-Z]$/;
     if (!dniRegex.test(dniValue)) {
         dniInput.style.borderColor = 'red';
-    } else {
+		alert('El DNI debe tener 9 caracteres y el último una letra');
+	} else {
         dniInput.style.borderColor = '';  // Restablece el color del borde si es válido
     }
 
@@ -21,11 +22,13 @@ document.getElementById('formulario').addEventListener('submit', function(event)
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(emailValue) || !emailValue.toLowerCase().endsWith("@appdeustutub.com")) {
         emailInput.style.borderColor = 'red';
+		alert('El email debe acabar con @appdeustutub.com');
+
     } else {
         emailInput.style.borderColor = '';  // Restablece el color del borde si es válido
     }
 
-    // Verificar si alguno de los campos es inválido
+    // Muestra de color los campos inválido
     if (dniInput.style.borderColor === 'red' || emailInput.style.borderColor === 'red') {
         return;
     }
