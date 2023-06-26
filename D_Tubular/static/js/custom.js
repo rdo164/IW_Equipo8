@@ -1,5 +1,5 @@
 // Obtener todos los elementos de texto en la página
-var textElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p');
+var textElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, div, table, nav, li');
 
 // Función para aumentar el tamaño de los elementos de texto
 function aumentarTamanio() {
