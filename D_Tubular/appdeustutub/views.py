@@ -9,6 +9,7 @@ from django import forms
 from .forms import EmpleadoForm, EquipoForm, ProcesoForm, EmailForm, ArchivoForm
 from django.urls import reverse_lazy
 from .utils import enviar_email
+from django.http import JsonResponse
 import os
 
 # Create your views here.
@@ -206,3 +207,11 @@ def borrar_archivo(request, archivo_id):
     context = {'archivo': archivo}
     return render(request, 'borrar_archivo.html', context)
      
+class APIListView(View):
+    def get(self,request):
+        if('marca' in request.GET):
+            ListaEquipo = Equipo.objects.filter(marca__contains=request.GET('marca'))
+        else:
+            ListaEquipo = Equipo.objects.all()
+
+        return JsonResponse(list(ListaEquipo.values()), safe=False)  

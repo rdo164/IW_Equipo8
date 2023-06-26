@@ -40,7 +40,8 @@ urlpatterns =[
     path('subir-archivo/', views.subir_archivo, name='subir_archivo'),
     path('mostrar-archivos/', views.mostrar_archivos, name='mostrar_archivos'),
     path('descargar-archivo/<int:archivo_id>/', views.descargar_archivo, name='descargar_archivo'),
-    path('borrar_archivo/<int:archivo_id>/', views.borrar_archivo, name='borrar_archivo')
+    path('borrar_archivo/<int:archivo_id>/', views.borrar_archivo, name='borrar_archivo'),
+
+    path('APIarchivos/', views.APIListView.as_view(), name='api-equipo')
 
 ]
-

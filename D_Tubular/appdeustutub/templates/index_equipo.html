@@ -18,39 +18,30 @@
         <table>
             <thead>
                 <tr>
-                    <th>Marca</th>
                     <th>Modelo</th>
-                    <th>Proceso Asociado</th>
-                    <th>-----------</th>
+
+                    <th>Marca</th>
+
+                    <th> Fecha instalacion</th>
+                    
+                    <th>Fecha adquisicion</th>
+
+                    <th> Detalles</th>
+
+
                 </tr>
             </thead>
-            <tbody>
-                <!-- Recorrer equipos -->
-                {% for equipo in lista_equipos %}
-                <tr>
-                    <!-- Mostrar marca y modelo del equipo -->
-                    <td>{{ equipo.marca }}</td>
-                    <td>{{ equipo.modelo }}</td>
-                    <td>
-                        <ul>
-                            {% for proceso in equipo.proceso_set.all %}
-                            <li><a href="{% url 'proceso-detail' proceso.id %}"><strong>{{ proceso }}</strong></a></li>
-                            {% endfor %}
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li><a href="{% url 'equipo-detail' equipo.id %}"><strong>Detalles</strong></a></li>
-                        </ul>
-                    </td>
-                </tr>
-                {% endfor %}
+            <!-- fetch-API -->
+            <tbody id="tbody">
+
             </tbody>
         </table>
         {% else %}
         <p>No existen equipos</p>
         {% endif %}
-        
+        <script src="{% static 'js/fetch-API.js' %}"></script>
+
+
 </div>
 
 {% endblock %}
