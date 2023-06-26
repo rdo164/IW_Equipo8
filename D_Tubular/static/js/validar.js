@@ -1,28 +1,35 @@
-let id = (id) => document.getElementById(id);
-let classes = (classes) => document.getElementsByClassName(classes);
-let nombreDeUsuario = id("nombre"),
-	email = id("email"),
-	msjError = classes("error");
+document.getElementById('formulario').addEventListener('submit', function(event) {
+    event.preventDefault();  // Evita que se envíe el formulario
 
-form.addEventListener("enviar", (e) => {
-	e.preventDefault();
+    // Obtén el valor del campo DNI
+    var dniInput = document.getElementById('id_dni');
+    var dniValue = dniInput.value.trim();
 
-	motor(nombreDeUsuario, 0, "El nombre de usuario no puede estar en blanco");
-	motor(correoElectronico, 6, "El correo electrónico no puede estar en blanco");
+    // Validar formato de DNI
+    var dniRegex = /^\d{8}[a-zA-Z]$/;
+    if (!dniRegex.test(dniValue)) {
+        dniInput.style.borderColor = 'red';
+    } else {
+        dniInput.style.borderColor = '';  // Restablece el color del borde si es válido
+    }
 
+    // Obtén el valor del campo email
+    var emailInput = document.getElementById('id_email');
+    var emailValue = emailInput.value.trim();
+
+    // Validar formato de email
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailValue) || !emailValue.toLowerCase().endsWith("@appdeustutub.com")) {
+        emailInput.style.borderColor = 'red';
+    } else {
+        emailInput.style.borderColor = '';  // Restablece el color del borde si es válido
+    }
+
+    // Verificar si alguno de los campos es inválido
+    if (dniInput.style.borderColor === 'red' || emailInput.style.borderColor === 'red') {
+        return;
+    }
+
+    // Si la validación fue exitosa, envía el formulario
+    this.submit();
 });
-let motor = (id, serial, mensaje) => {
-	//			remueve los espacios 
-	if (id.value.trim() === "") {
-		msjError[serial].innerHTML = mensaje;
-		id.li.border = "2px solid red";
-	}
-	else {
-		msjError[serial].innerHTML = "";
-		id.style.border = "2px solid green";
-	}
-}
-/*
-form button[type = "submit"]:hover {
-	background - color: #45a049;
-}*/
